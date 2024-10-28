@@ -18,9 +18,20 @@ current_time=$(date "+%H:%M")
 battery_charge=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "percentage" | awk '{print $2}')
 battery_status=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "state" | awk '{print $2}')
 
-# Audio and multimedia
+
+if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q -i "Muted"; then
+    audio_active='🔇'
+  else
+        audio_active='🔊'
+        fi
+
+
 audio_volume=$(pamixer --sink `pactl list sinks short | grep RUNNING | awk '{print $1}'` --get-volume)
-audio_is_muted=$(pamixer --sink `pactl list sinks short | grep RUNNING | awk '{print $1}'` --get-mute)
+
+
+
+
+# Audio and multimedia
 media_artist=$(playerctl metadata artist)
 media_song=$(playerctl metadata title)
 player_status=$(playerctl status)
@@ -36,10 +47,14 @@ language=$(swaymsg -r -t get_inputs | awk '/1:1:AT_Translated_Set_2_keyboard/;/x
 loadavg_5min=$(cat /proc/loadavg | awk -F ' ' '{print $2}')
 
 
-if [ $battery_status = "discharging" ];
-then
-    battery_pluggedin='⚠'
-else
+if [ "$battery_status" = "discharging" ]; then
+    battery_pluggedin='🔋'
+    "$battery_charge" = ${battery_charge%\%} # remote the % from battery_charge
+    # Check if battery is low
+    if [battery_charge -lt 25]; then # -lt means less than
+      battery_pluggedin='🪫'
+    fi
+  else
     battery_pluggedin='⚡'
 fi
 
@@ -60,12 +75,6 @@ else
     song_status='⏹'
 fi
 
-if [ $audio_is_muted = "true" ]
-then
-    audio_active='🔇'
-else
-    audio_active='🔊'
-fi
 tempo=$(echo $(curl -s "https://wttr.in/Joao_Pessoa?0&T&Q&format=2"))
 
-echo "$tempo - 🎧 $song_status $media_artist - $media_song | ⌨ $language | $network_active $interface_easyname ($ping ms) | 🏋 $loadavg_5min | $audio_active $audio_volume% | $battery_pluggedin $battery_charge | $date_and_week 🕘 $current_time"
+echo "$tempo - 🎧 $song_status $media_artist - $media_song | ⌨ $language | $network_active $interface_easyname ($ping ms) | 🚀 $loadavg_5min | $audio_active $audio_volume% | $battery_pluggedin $battery_charge | $date_and_week 🕘 $current_time"
