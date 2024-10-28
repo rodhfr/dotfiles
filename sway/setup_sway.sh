@@ -12,7 +12,7 @@ check_installed() {
 
 # WARNINGS
 echo "Intended for fresh installs of Debian 12"
-echo "This script will remove your currently existing lunar vim installation or neovim for what matters"
+echo "This script will remove your currently existing configs for lvim, sway, kitty, mpv, ranger, lazygit, neovim"
 echo "Make sure to backup your ~/.config/ folder"
 read -p "Do you wish to continue? (y/n): " answer
 
@@ -41,6 +41,9 @@ if [[ "$answer" == "y" ]]; then
       mpv \
       rclone \
       pamixer \
+      python3-pynvim \
+      python-pip \
+      make \
       pavucontrol \
       pulseaudio-utils \
       python-is-python3 \
@@ -88,16 +91,7 @@ if [[ "$answer" == "y" ]]; then
 
 
   # ---- Install Lunarvim 0.9.5 ----
-  
   # -- Dependencies --
-  # Package Manager Dependencies
-  sudo apt install -y \
-    python3-pynvim \
-    python-pip \
-    make \
-    ripgrep \
-    git
-
 
   # Symlink Neovim binary
   if [ -f "$HOME/.config/neovim/bin/nvim" ]; then
