@@ -24,16 +24,17 @@ include /etc/sway/config-vars.d/*
 #include /home/rodhfr/.config/sway/catppuccin-latte
 #include catppuccin-frappe
 #include catppuccin-macchiato
-include catppuccin-mocha
+include themes/catppuccin-mocha
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/sway/coragem_cao.jpg fill
+
 #
 # Example configuration:
 #
-output HDMI-A-1 resolution 1920x1080 position 1920,0
+output HDMI-A-1 resolution 1920x1080 position -1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -51,7 +52,8 @@ output HDMI-A-1 resolution 1920x1080 position 1920,0
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
+
+
 # Example configuration:
 #
 #   input "2:14:SynPS/2_Synaptics_TouchPad" {
@@ -59,13 +61,16 @@ output HDMI-A-1 resolution 1920x1080 position 1920,0
 #       tap enabled
 #       natural_scroll enabled
 #       middle_emulation enabled
-#   }
-#
+
+input "type:keyboard" {
+    xkb_layout us,br
+    xkb_options grp:alt_shift_toggle
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
 # Clipboard Manager
-exec wl-paste -t text --watch clipman store --no-persist
+#exec wl-paste -t text --watch clipman store --no-persist
 
 ### Key bindings
 #
@@ -216,18 +221,36 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
-# bar
-bar {
-  colors {
-    background         $base
-    statusline         $text
-    focused_statusline $text
-    focused_separator  $base
 
-    # target           border bg        text
-    focused_workspace  $base  $mauve    $crust
-    active_workspace   $base  $surface2 $text
-    inactive_workspace $base  $base     $text
-    urgent_workspace   $base  $red      $crust
+# Audio
+bindsym $mod+F1 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym $mod+F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym $mod+F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+
+# Media
+bindsym $mod+F4 exec playerctl previous
+bindsym $mod+F5 exec playerctl play-pause
+bindsym $mod+F6 exec playerctl next
+
+# Screenshot
+bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
+
+# Bar
+bar {
+   position bottom
+#   font "Terminus (TTF)"
+   status_command while ~/.config/sway/scripts/sway_bar.sh; do sleep 5; done
+
+    colors {
+        background         $base
+        statusline         $text
+        focused_statusline $text
+        focused_separator  $base
+        # target           border bg        text
+        focused_workspace  $base  $mauve    $crust
+        active_workspace   $base  $surface2 $text
+        inactive_workspace $base  $base     $text
+        urgent_workspace   $base  $red      $crust
   }
 }
