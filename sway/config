@@ -55,23 +55,23 @@ output HDMI-A-1 resolution 1920x1080 position -1920,0
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-# input "type:Touchpad" {
+### touchpad example:
+# input "type:touchpad" {
 #     scroll_method two_finger 
 #     natural_scroll disabled
 #     tap enabled 
 #     dwt disabled
 #     middle_emulation enabled 
 # }
-# The following is generated automatically from your touchpad_input
-include ~/.config/sway/touchpad_input.conf
-# Works for all keyboards
-input "type:keyboard" {
-    xkb_layout us,br
-    xkb_variant abnt2
-    xkb_options grp:rctrl_toggle}
-}
+### keyboard example:
+# input "type:keyboard" {
+#     xkb_layout us,br
+#     xkb_variant abnt2
+#     xkb_options grp:rctrl_toggle}
+# }
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+# The following is generated automatically from your touchpad_input
 
 # Clipboard Manager
 #exec wl-paste -t text --watch clipman store --no-persist
@@ -270,3 +270,5 @@ bar {
         urgent_workspace   $base  $red      $crust
   }
 }
+include keyboard
+include touchpad

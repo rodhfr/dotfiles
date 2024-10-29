@@ -175,7 +175,7 @@ if [[ "$answer" == "y" ]]; then
   touchpad_identifier=$(swaymsg -t get_inputs | jq -r '.[] | select(.identifier | contains("Touchpad")) | .identifier')
 
   # Define the configuration file path
-  input_conf_file="$HOME/.config/sway/touchpad_input.conf"
+  input_conf_file="$HOME/.config/sway/touchpad"
 
   # Create the input configuration using the EOF method
   cat <<EOF > "$input_conf_file"
