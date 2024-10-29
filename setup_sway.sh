@@ -35,9 +35,8 @@ if [[ "$response" == "y" ]]; then
     fi
     sudo systemctl enable NetworkManager
     sudo systemctl start NetworkManager
-    sudo systemctl status NetworkManager
     echo "Needed dependencies installed, launching nmtui for network configuration"
-    nmtui
+    sudo nmtui
     echo "Network configured successfully."
 else
     echo "Network configuration skipped."
@@ -91,10 +90,21 @@ if [[ "$answer" == "y" ]]; then
       pulseaudio-utils \
       python-is-python3 \
       upower \
-      upower-doc \
       brightnessctl \
       jq \
       python3-i3ipc \
+      xwayland \
+      qtbase5-dev \
+      qt5-qmake \
+      qtbase5-dev-tools \
+      qtwayland5 \
+      qt6-wayland \
+      qt6-wayland-dev \
+      libxcb-xinerama0 \
+      libxcb-xinerama0-dev \
+      xdg-desktop-portal-wlr \
+      xdg-desktop-portal-gtk \
+      flatpak-xdg-utils \
       yt-dlp; then
       echo "Failed to install packages." >&2
       exit 1
@@ -110,7 +120,10 @@ if [[ "$answer" == "y" ]]; then
   pipx install autotiling
   
   # Removing old installation of neovim, debian has old version for lunarvim
-  sudo apt remove -y neovim
+  sudo apt remove -y \
+    neovim \
+    xdg-desktop-portal \
+    xdg-desktop-portal-gnome
 
   # Backing up old config files
   backup_folder="$HOME/.config/SwaySetup_backup_old_config/"
