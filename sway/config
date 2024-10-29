@@ -21,9 +21,12 @@ set $term kitty
 set $menu fuzzel
 
 include /etc/sway/config-vars.d/*
-#include /home/rodhfr/.config/sway/catppuccin-latte
-#include catppuccin-frappe
-#include catppuccin-macchiato
+
+### Themes
+#
+#include themes/catppuccin-latte
+#include themes/catppuccin-frappe
+#include themes/catppuccin-macchiato
 include themes/catppuccin-mocha
 
 ### Output configuration
@@ -52,17 +55,16 @@ output HDMI-A-1 resolution 1920x1080 position -1920,0
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-
-
-# Example configuration:
-#
-input "type:Touchpad" {
-    scroll_method two_finger 
-    natural_scroll enabled 
-    tap enabled # Enable taping to click
-    dwt enabled # Disable while typing
-    middle_emulation enabled # Three finger action
-}
+# input "type:Touchpad" {
+#     scroll_method two_finger 
+#     natural_scroll disabled
+#     tap enabled 
+#     dwt disabled
+#     middle_emulation enabled 
+# }
+# The following is generated automatically from your touchpad_input
+include ~/.config/sway/touchpad_input.conf
+# Works for all keyboards
 input "type:keyboard" {
     xkb_layout us,br
     xkb_variant abnt2
@@ -224,17 +226,28 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
-
 # Audio
 bindsym $mod+F1 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym $mod+F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym $mod+F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 
 # Media
 bindsym $mod+F4 exec playerctl previous
 bindsym $mod+F5 exec playerctl play-pause
 bindsym $mod+F6 exec playerctl next
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Brightness control
+bindsym $mod+F7 exec brightnessctl s 10%-
+bindsym $mod+F8 exec brightnessctl s 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 # Screenshot
 bindsym Print exec grim -g "$(slurp -d)" - | wl-copy

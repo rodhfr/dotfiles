@@ -54,7 +54,7 @@ if [ "$battery_status" = "discharging" ]; then
         battery_alert='Low Battery ⚠️'
     fi
 else
-    battery_pluggedin='⚡'
+    battery_pluggedin='Charging Battery ⚡'
 fi
 
 
