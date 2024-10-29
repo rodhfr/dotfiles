@@ -170,27 +170,6 @@ if [[ "$answer" == "y" ]]; then
   # -- LunarVim Installation -- 
   LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 
-  ### ---- Touchpad input generate config ----
-  # Get the touchpad identifier and save it to a variable
-  touchpad_identifier=$(swaymsg -t get_inputs | jq -r '.[] | select(.identifier | contains("Touchpad")) | .identifier')
-
-  # Define the configuration file path
-  input_conf_file="$HOME/.config/sway/touchpad"
-
-  # Create the input configuration using the EOF method
-  cat <<EOF > "$input_conf_file"
-  input "$touchpad_identifier" {
-      tap enabled  # Enable tap-to-click
-      dwt disabled # Disable while typing (you can set to disabled for testing)
-      natural_scroll disabled  # Set this according to your preference
-      scroll_method two_finger  # Keep your scrolling method
-      middle_emulation disabled  # Set this as needed
-  }
-EOF
-#
-  # Output the path to the new configuration file
-  echo "Touchpad configuration saved to: $input_conf_file"
-
   # restarting sway
   swaymsg reload
 
