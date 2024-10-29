@@ -9,6 +9,14 @@ response=${response,,}
 
 if [[ "$response" == "y" ]]; then
     echo "Starting network configuration..."
+    sudo apt install -y \
+      network-manager \
+      network-manager-config-connectivity-debian \
+
+    sudo systemctl enable NetworkManager
+    sudo systemctl start NetworkManagerk
+    sudo systemctl status NetworkManager
+    echo "Needed dependencies installed, launching nmtui for network configuration"
     nmtui
     echo "Network configured successfully."
 else
