@@ -14,9 +14,6 @@ current_time=$(date "+%H:%M")
 # Commands
 #############
 
-# Battery or charger
-battery_charge=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "percentage" | awk '{print $2}')
-battery_status=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "state" | awk '{print $2}')
 
 
 if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q -i "Muted"; then
@@ -46,17 +43,20 @@ ping=$(ping -c 1 www.google.es | tail -1| awk '{print $4}' | cut -d '/' -f 2 | c
 language=$(swaymsg -r -t get_inputs | awk '/1:1:AT_Translated_Set_2_keyboard/;/xkb_active_layout_name/' | grep -A1 '\b1:1:AT_Translated_Set_2_keyboard\b' | grep "xkb_active_layout_name" | awk -F '"' '{print $4}')
 loadavg_5min=$(cat /proc/loadavg | awk -F ' ' '{print $2}')
 
-
+# Battery or charger
+battery_charge=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "percentage" | awk '{print $2}' | tr -d '%') # Remove the % from battery_charge
+battery_status=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "state" | awk '{print $2}')
 if [ "$battery_status" = "discharging" ]; then
     battery_pluggedin='🔋'
-    "$battery_charge" = ${battery_charge%\%} # remote the % from battery_charge
+
     # Check if battery is low
-    if [battery_charge -lt 25]; then # -lt means less than
-      battery_pluggedin='🪫'
+    if [ "$battery_charge" -lt 25 ]; then # -lt means less than
+        battery_alert='Low Battery ⚠️'
     fi
-  else
+else
     battery_pluggedin='⚡'
 fi
+
 
 if ! [ $network ]
 then
@@ -77,4 +77,4 @@ fi
 
 tempo=$(echo $(curl -s "https://wttr.in/Joao_Pessoa?0&T&Q&format=2"))
 
-echo "$tempo - 🎧 $song_status $media_artist - $media_song | ⌨ $language | $network_active $interface_easyname ($ping ms) | 🚀 $loadavg_5min | $audio_active $audio_volume% | $battery_pluggedin $battery_charge | $date_and_week 🕘 $current_time"
+echo "$tempo - 🎧 $song_status $media_artist - $media_song | ⌨ $language | $network_active $interface_easyname ($ping ms) | 🚀 $loadavg_5min | $audio_active $audio_volume% | "$battery_alert" $battery_pluggedin $battery_charge | $date_and_week 🕘 $current_time"

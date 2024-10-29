@@ -80,6 +80,8 @@ if [[ "$answer" == "y" ]]; then
       pavucontrol \
       pulseaudio-utils \
       python-is-python3 \
+      upower \
+      upower-doc \
       yt-dlp; then
       echo "Failed to install packages." >&2
       exit 1
