@@ -1,5 +1,30 @@
 #!/bin/bash
 
+
+# Prompt the user for network configuration
+read -p "Do you want to configure the network? (y/n): " response
+
+# Convert response to lowercase
+response=${response,,}
+
+if [[ "$response" == "y" ]]; then
+    echo "Starting network configuration..."
+    nmtui
+    echo "Network configured successfully."
+else
+    echo "Network configuration skipped."
+fi
+
+# Ping google.com to check network connectivity
+echo "Checking if network is reachable..."
+if ping -c 3 google.com &> /dev/null; then
+    echo "Network is reachable."
+
+else
+    echo "Network is unreachable. Exiting script. Retry network configuration."
+    exit 1
+fi
+
 # Function to check if a command is installed
 check_installed() {
     if command -v "$1" > /dev/null; then
