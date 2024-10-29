@@ -94,6 +94,7 @@ if [[ "$answer" == "y" ]]; then
       upower-doc \
       brightnessctl \
       jq \
+      python3-i3ipc \
       yt-dlp; then
       echo "Failed to install packages." >&2
       exit 1
@@ -103,6 +104,10 @@ if [[ "$answer" == "y" ]]; then
 
   # Add FlatHub
   flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+  # program to config inputs via gui
+  pipx install sway-input-config
+  pipx install autotiling
   
   # Removing old installation of neovim, debian has old version for lunarvim
   sudo apt remove -y neovim
