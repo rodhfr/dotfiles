@@ -137,29 +137,14 @@ if [[ "$answer" == "y" ]]; then
   [ -d "$HOME/.config/ranger/" ] && mv -v "$HOME/.config/ranger/" "$backup_folder"
   [ -d "$HOME/.config/lazygit/" ] && mv -v "$HOME/.config/lazygit/" "$backup_folder"
   
-  # Creating folders "Permission check"
-  mkdir -p "$HOME/.config/sway/"
-  mkdir -p "$HOME/.config/lvim/"
-  mkdir -p "$HOME/.config/neovim/"
-  mkdir -p "$HOME/.config/kitty/"
-  mkdir -p "$HOME/.config/mpv/"
-  mkdir -p "$HOME/.config/ranger/"
-  mkdir -p "$HOME/.config/lazygit/"
-  mkdir -p "$HOME/.config/.BuildSwaySetup"
-
-  # Cloning dotfiles
-  git clone "https://github.com/rodhfr/dotfiles.git" "$HOME/.config/.BuildSwaySetup/"
-  # Moving dotfiles with overwrite
-  cp -rf "$HOME/.config/.BuildSwaySetup/dotfiles/"* "$HOME/.config/"
-  # Removing cached dotfiles
-  sudo rm -r "$HOME/.config/.BuildSwaySetup"
-
+  cp -r "./" "$HOME/.config/"
 
   # ---- Install Lunarvim 0.9.5 ----
   # -- Dependencies --
   
   # Symlink Neovim binary
   create_symlink "$HOME/.config/neovim/bin/nvim" /usr/bin/nvim
+  check_installed nvim
 
   # Symlink Lazygit binary
   create_symlink "$HOME/.config/lazygit/lazygit" /usr/bin/lazygit
