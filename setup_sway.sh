@@ -152,7 +152,7 @@ if [[ "$answer" == "y" ]]; then
   # Moving dotfiles with overwrite
   cp -rf "$HOME/.config/.BuildSwaySetup/dotfiles/"* "$HOME/.config/"
   # Removing cached dotfiles
-  rm -r "$HOME/.config/.BuildSwaySetup"
+  sudo rm -r "$HOME/.config/.BuildSwaySetup"
 
 
   # ---- Install Lunarvim 0.9.5 ----
@@ -189,6 +189,8 @@ if [[ "$answer" == "y" ]]; then
   # -- LunarVim Installation -- 
   LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 
+  # autoremoe
+  sudo apt autoremove -y
   # restarting sway
   swaymsg reload
 
