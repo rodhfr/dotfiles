@@ -165,7 +165,7 @@ if [[ "$answer" == "y" ]]; then
   create_symlink "$HOME/.config/lazygit/lazygit" /usr/bin/lazygit
 
   # Setup Rust Latest
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable --profile default --no-modify-path
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   echo "export PATH=\$HOME/.local/bin:\$PATH" >> "$HOME/.bashrc"
   echo ". $HOME/.cargo/env" >> "$HOME/.bashrc"
   source "$HOME/.bashrc"
