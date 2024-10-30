@@ -201,3 +201,4 @@ elif [[ "$answer" == "n" ]]; then
   echo "Exiting..."
 else
   echo "Invalid input. Please enter 'y' or 'n'. Press 'Ctrl+C' to exit"
+fi
