@@ -174,10 +174,10 @@ if [[ "$answer" == "y" ]]; then
   # -- LunarVim Installation -- 
   LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 
-  # autoremoe
+  # autoremoe and check for futher upgrades
   sudo apt autoremove -y
-  # restarting sway
-  swaymsg reload
+  sudo apt update
+  sudo apt upgrade -y
 
   # finish program
   echo "Installation completed successfully."
