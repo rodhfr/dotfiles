@@ -84,7 +84,7 @@ if [[ "$answer" == "y" ]]; then
       rclone \
       pamixer \
       python3-pynvim \
-      python-pip \
+      python3-pip \
       make \
       pavucontrol \
       pulseaudio-utils \
