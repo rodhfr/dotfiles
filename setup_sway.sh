@@ -65,6 +65,10 @@ if [[ "$answer" == "y" ]]; then
   sudo apt upgrade -y
   if ! sudo apt install -y \
       git \
+      unzip \
+      fonts-noto-color-emoji \
+      fonts-recommended \
+      fonts-firacode \
       tar \
       curl \
       wget \
@@ -77,6 +81,7 @@ if [[ "$answer" == "y" ]]; then
       ranger \
       fuzzel \
       pipx \
+      firefox-esr \
       grimshot \
       ripgrep \
       playerctl \
@@ -84,6 +89,7 @@ if [[ "$answer" == "y" ]]; then
       rclone \
       pamixer \
       python3-pynvim \
+      pcmanfm-qt \
       python3-pip \
       make \
       pavucontrol \
@@ -136,6 +142,7 @@ if [[ "$answer" == "y" ]]; then
   [ -d "$HOME/.config/kitty/" ] && mv -v "$HOME/.config/kitty/" "$backup_folder"
   [ -d "$HOME/.config/ranger/" ] && mv -v "$HOME/.config/ranger/" "$backup_folder"
   [ -d "$HOME/.config/lazygit/" ] && mv -v "$HOME/.config/lazygit/" "$backup_folder"
+  [ -d "$HOME/.config/pcmanfm-qt/" ] && mv -v "$HOME/.config/pcmanfm-qt/" "$backup_folder"
   
   cp -r "./" "$HOME/.config/"
 
@@ -147,7 +154,7 @@ if [[ "$answer" == "y" ]]; then
   check_installed nvim
 
   # Symlink Lazygit binary
-  create_symlink "$HOME/.config/lazygit/lazygit" /usr/bin/lazygit
+  #create_symlink "$HOME/.config/lazygit/lazygit" /usr/bin/lazygit
 
   # Setup Rust Latest
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -171,15 +178,35 @@ if [[ "$answer" == "y" ]]; then
   # just in case before installing Lunarvim
   source "$HOME/.bashrc"
   
-  # -- LunarVim Installation -- 
+  ### -- LunarVim Installation -- 
   LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 
-  # autoremoe and check for futher upgrades
+  ### Install fonts
+  FONT_DIR="./fonts/JetBrainsMonoNerdFontPropo-Regular.ttf"  
+  FONT_FILE2="./fonts/TerminusTTF-4.49.3.ttf"
+  mkdir -p "$HOME/.fonts/"
+  mkdir -p "$HOME/.local/share/fonts"
+  FONT_DIR="$HOME/.local/share/fonts"
+  SYSTEM_FONT_DIR="/usr/share/fonts"
+
+ # creating dir for fonts
+  mkdir -p "$FONT_DIR"
+  sudo mkdir -p "$SYSTEM_FONT_DIR"
+
+  # copying fonts
+  cp "$FONT_FILE" "$FONT_DIR/"
+  sudo cp "$FONT_FILE2" "$SYSTEM_FONT_DIR"
+
+  echo "Updating font cache..."
+  fc-cache -f -v
+  echo "Font installed successfully!"
+
+  # autoremove and check for futher upgrades
   sudo apt autoremove -y
   sudo apt update
   sudo apt upgrade -y
 
-  # finish program
+  ### Finish program
   echo "Installation completed successfully."
   echo "Your old config files were backed up to $backup_folder"
   echo "WARN: For Flatpak to work a system reboot is needed."

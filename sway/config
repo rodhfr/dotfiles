@@ -258,7 +258,7 @@ bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
 # Bar
 bar {
    position bottom
-#   font "Terminus (TTF)"
+   font "JetBrainsMono Nerd Font"
    status_command while ~/.config/sway/scripts/sway_bar.sh; do sleep 5; done
 
     colors {
