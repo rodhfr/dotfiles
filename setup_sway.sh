@@ -60,7 +60,7 @@ read -p "Do you wish to continue? (y/n): " answer
 
 if [[ "$answer" == "y" ]]; then
   echo "Starting installation..."
-  echo "Installing some basic packages"
+  echo "Installing some basic packages..."
   sudo apt update 
   sudo apt upgrade -y
   if ! sudo apt install -y \
@@ -160,7 +160,9 @@ if [[ "$answer" == "y" ]]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   echo "export PATH=\$HOME/.local/bin:\$PATH" >> "$HOME/.bashrc"
   echo ". $HOME/.cargo/env" >> "$HOME/.bashrc"
+  sleep 3 
   source "$HOME/.bashrc"
+  sleep 3
   check_installed rustc
 
   # Install NVM (version manager for node)
