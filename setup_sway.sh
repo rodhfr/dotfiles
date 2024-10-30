@@ -72,6 +72,7 @@ if [[ "$answer" == "y" ]]; then
       tar \
       curl \
       wget \
+      wayland-utils \
       flatpak \
       build-essential \
       python3-pip \
