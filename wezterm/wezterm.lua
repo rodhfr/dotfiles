@@ -10,6 +10,7 @@ return {
     family = 'JetBrains Mono',
     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
   },
+  window_background_opacity = 0.7,
   font_size = 12,
   window_close_confirmation = 'NeverPrompt',
   keys = {
