@@ -189,7 +189,7 @@ bindsym $mod+Shift+Ctrl+a exec fish ~/.local/bin/anilist.fish
 bindsym $mod+Shift+Ctrl+m exec fish ~/.local/bin/myanimelist.fish
 bindsym $mod+Shift+Ctrl+l exec fish ~/.local/bin/letterboxd.fish
 
-## KP_LAYER
+## KP_LAYER Keyd
 bindsym Alt+Shift+Ctrl+f exec $browser
 bindsym Alt+Shift+Ctrl+r exec flatpak run com.adamcake.Bolt
 bindsym Alt+Shift+Ctrl+s exec $edit-sway-config
@@ -424,7 +424,7 @@ mode "resize" {
 }
 
 ## Keyboard-Mouse Control
-bindsym $mod+z exec "wl-kbptr -o modes=tile,split,click"
+bindsym $mod+z exec "wl-kbptr -o modes=tile,split"
 bindsym $mod+Shift+z mode Mouse
 bindsym $mod+c mode Mouse
 

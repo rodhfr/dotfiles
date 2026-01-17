@@ -114,3 +114,35 @@ end, { noremap = true, silent = true, desc = "Run Python file" })
 -- vim.opt.spell = true
 vim.opt.spelllang = "pt_br,en_us"
 
+-- Função para inserir Markdown com título da URL do clipboard
+local function insert_markdown_link_from_clipboard()
+  -- Pegar URL do clipboard (+ é o clipboard do sistema)
+  local url = vim.fn.getreg("+")
+
+  if not url:match("^https?://") then
+    print("Clipboard não contém uma URL válida!")
+    return
+  end
+
+  -- Pega o HTML da página e extrai o título usando curl + grep
+  local handle =
+    io.popen("curl -s " .. vim.fn.shellescape(url) .. ' | grep -oP "(?<=<title>).*?(?=</title>)" | head -n 1')
+  local title = handle:read("*a")
+  handle:close()
+
+  title = title:gsub("\n", "") -- Remove quebras de linha
+
+  if title == "" then
+    title = url -- fallback se não tiver título
+  end
+
+  -- Insere no buffer como Markdown no cursor atual
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local line = vim.api.nvim_get_current_line()
+  local new_line = line:sub(1, col) .. string.format("[%s](%s)", title, url) .. line:sub(col + 1)
+  vim.api.nvim_set_current_line(new_line)
+end
+
+-- Cria um comando :MdClip ou um atalho <leader>m
+vim.api.nvim_create_user_command("MdClip", insert_markdown_link_from_clipboard, {})
+vim.api.nvim_set_keymap("n", "<leader>m", ":MdClip<CR>", { noremap = true, silent = true })

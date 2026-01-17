@@ -242,7 +242,7 @@
   },
   "custom/runebar": {
     "format": "{text}",
-    "exec": "python /home/rodhfr/.config/waybar/read_status_runebar.py",
+    "exec": "python /home/rodhfr/.config/waybar/read_status.py",
     "signal": 10,
     "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
     "return-type": "json"
