@@ -1,7 +1,7 @@
 starship init fish | source
 
 set PATH $PATH /home/rodhfr/.local/bin
-set EDITOR vim
+set EDITOR nvim
 
 zoxide init fish | source
 

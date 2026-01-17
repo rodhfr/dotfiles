@@ -27,7 +27,7 @@ unset rc
 
 # Add local bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 

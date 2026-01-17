@@ -132,7 +132,7 @@ output HDMI-A-1 pos 0 0 resolution 1920x1080@74.973Hz
 ############################### Wallpaper Config #######################################
 # Folder location
 # Randomly select a wallpaper from the folder ~/Pictures/Wallpapers
-exec_always pkill swaybg && sleep 0.1 && swaybg -i "$(find ~/Pictures/Wallpapers/ -type f | shuf -n 1)" -m fill
+exec_always pkill swaybg && sleep 0.1 && swaybg -i "$(find ~/.config/wallpapers/ -type f | shuf -n 1)" -m fill
 
 ########################################################################################
 ########################################################################################
