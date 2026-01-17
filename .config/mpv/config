@@ -1,0 +1,15 @@
+#input-ipc-server=/tmp/mpvsocket
+idle=yes
+watch-later-options=vid,aid,sid,volume,start,speed,sub-visibility
+hwdec=auto
+save-position-on-quit=yes
+slang=en
+alang=jp
+cache=yes
+#ytdl-format=bestvideo[height<=?720]+bestaudio/best
+ytdl-format=bestvideo[height<=?1080]+bestaudio/best
+sub-auto=fuzzy
+#ytdl-raw-options=ignore-config=,sub-lang=en,write-sub=,write-auto-sub=
+ytdl-raw-options='ignore-config=,sub-langs="en,en-US",write-subs=,write-auto-subs=,cookies-from-browser=firefox'
+script-opts=sponsorblock-categories=all
+screenshot-directory=~/Pictures/

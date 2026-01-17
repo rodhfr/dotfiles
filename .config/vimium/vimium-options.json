@@ -1,0 +1,14 @@
+{
+  "keyMappings": "map <Down> scrollDown\nmap <Up> scrollUp\nunmap r\nunmap m\nmap 1 goPrevious\nmap 2 goNext\nmap t Vomnibar.activateEditUrlInNewTab\nmap o Vomnibar.activateInNewTab\nmap h Vomnibar.activateInNewTab\nmap @ closeTabsOnLeft\nmap # closeTabsOnRight",
+  "settingsVersion": "2.3.1",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://remotedesktop.google.com/*"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+(defcfg
+  process-unmapped-keys yes
+  log-layer-changes yes
+  linux-dev /dev/input/event22
+)
+
+(defsrc
+  kp0   kp1 kp4 kp7 nlk
+        kp2 kp5 kp8 kp/
+  kp.   kp3 kp6 kp9 kp*
+  kprt  kp+ kp- bspc
+)
+
+(defalias
+  q (tap-dance 50 (q XX a))
+  hold-num (layer-while-held num)
+)
+
+(deflayer default
+    @q       w        e            r        t
+             s        d            f        g   
+    z        x        c            v        b
+    lsft     lalt     @hold-num             spc   
+)
+
+(defalias
+  key0 (tap-dance 200 (1 6))
+  key1 (tap-dance 200 (2 7))
+  key2 (tap-dance 200 (3 8))
+  key3 (tap-dance 200 (4 9))
+  key4 (tap-dance 200 (5 0))
+)
+
+(deflayer num
+  @key0     @key1     @key2     @key3    @key4 
+            7         8         9        0
+  6         _         _         _        _
+  _         _         _         _
+)
+
+

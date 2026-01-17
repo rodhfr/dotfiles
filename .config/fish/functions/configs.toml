@@ -1,0 +1,18 @@
+[ytmp3]
+message = "Paste Link to Download"
+new_term = True
+
+[rswiki]
+message = "Search String"
+
+[nyaa]
+message = "Search for Anime"
+
+[anilist]
+message = "Search for Anime"
+
+[myanimelist]
+message = "Search for Anime"
+
+[letterboxd]
+message = "Search for Movie"

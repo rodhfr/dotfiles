@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta name="theme-color" content="#222222">
+
+    <title>Tamanco Status</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            justify-content: center;
+            transition: background-color 0.6s ease;
+            background-color: #222;
+        }
+        body.green {
+            background-color: rgba(40, 167, 69, 0.50);
+        }
+
+        body.red {
+            background-color: rgba(220, 53, 69, 0.50);
+        }
+
+        body.idle {
+            background-color: rgba(108, 117, 125, 0.15);
+        }
+
+        .main {
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .landscape_btns {
+            flex-direction: row;
+    }
+
+        #status {
+            padding: clamp(32px, 8vmin, 120px) clamp(40px, 14vmin, 260px);
+            border-radius: 20px;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        #fullscreenBtn {
+            margin-top: 30px;
+            padding: 18px 30px;
+            font-size: 1.4em;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+        }
+        #fullscreenBtn:active {
+            transform: scale(0.97);
+        }
+
+        #lock {
+            margin-top: 30px;
+            padding: 18px 30px;
+            font-size: 1.4em;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+        }
+        #lock:active {
+            transform: scale(0.97);
+        }
+
+        .green {
+            background-color: #28a745;
+            color: white;
+            box-shadow: 0 0 50px #28a74580;
+        }
+
+        .red {
+            background-color: #dc3545;
+            color: white;
+            box-shadow: 0 0 50px #dc354580;
+        }
+
+        .idle {
+            background-color: #6c757d;
+            color: white;
+            box-shadow: 0 0 50px #6c757d80;
+        }
+
+        h1 {
+            margin: clamp(12px, 4vmin, 48px);
+            text-align: center;
+            font-size: clamp(1.8rem, 6vmax, 3.5rem);
+            color: #f0f0f0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+      <h1>Activity Status</h1>
+      <div id="status">Loading...</div>
+      <div id="landscape_btns">
+        <button id="lock">Keep screen on</button>
+        <button id="fullscreenBtn">Fullscreen Toggle ⛶</button>
+      </div>
+    </div>
+
+    <script>
+        async function updateStatus() {
+            const resp = await fetch("/status_data"); // aponta pro JSON
+            const data = await resp.json();
+            const statusDiv = document.getElementById("status");
+            const body = document.body;
+            statusDiv.innerText = data.text;
+            statusDiv.className = data.class;
+
+            body.className = data.class;
+        }
+
+        setInterval(updateStatus, 1000);
+        updateStatus();
+    </script>
+
+    <script>
+    let wakeLock = null;
+    const button = document.getElementById("lock");
+
+    async function toggleWakeLock() {
+      try {
+        if (wakeLock === null){
+          wakeLock = await navigator.wakeLock.request('screen');
+          button.innerText = "Allow screen off ❌";
+          console.log('Wake lock active');
+
+          wakeLock.addEventListener("release", () => {
+            wakeLock = null;
+            button.innerText = "Keep screen on 💡";
+            console.log("system auto deactivated wakelock")
+          });
+
+        } 
+        else {
+          await wakeLock.release();
+          wakeLock = null;
+            button.innerText = "Keep screen on 💡";
+          console.log("Wake lock turned off");
+        }
+      } catch(e) {
+        console.log("Error:", e);
+      }
+    }
+
+
+    button.onclick = toggleWakeLock;
+    window.addEventListener("load", async () => {
+      if("wakeLock" in navigator && wakeLock === null){
+        await toggleWakeLock();
+      }
+    });
+    </script>
+    <script>
+      const btn = document.getElementById('fullscreenBtn');
+      const elem = document.documentElement;
+
+      btn.addEventListener('click', () => {
+          if (!document.fullscreenElement){
+              if (elem.requestFullscreen) elem.requestFullscreen();
+              else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+              else if (elem.msrequestFullscreen) elem.msrequestFullscreen();
+          }
+          else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+          else if (document.webkitExitFullscreen) document.msExitFullscreen();
+        }
+      });
+    </script>
+
+</body>
+</html>
+

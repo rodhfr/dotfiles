@@ -1,0 +1,5 @@
+;;
+  ;; Chording can be more succinctly described by the modifier prefixes
+  ;; `C-`, `A-`, `S-`, and `M-` for lctrl, lalt, lshift, lmeta, but are possible
+  ;; by using `multi` as well. The lmeta key is also known by some other
+  ;; names: "Windows", "GUI", "Command", "Super".

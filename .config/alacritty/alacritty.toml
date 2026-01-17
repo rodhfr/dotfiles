@@ -1,0 +1,30 @@
+[keyboard]
+bindings = [
+  { key = 'PageUp',  action = 'ScrollLineUp' },
+  { key = 'PageDown', action = 'ScrollLineDown' },
+  { key = 'PageUp', mods = "Shift", action = 'ScrollHalfPageUp' },
+  { key = 'PageDown', mods = "Shift", action = 'ScrollHalfPageDown' },
+  { key = 'PageUp', mods = "Control", action = 'ScrollToTop' },
+  { key = 'PageDown', mods = "Control", action = 'ScrollToBottom' }
+  # { key = "Return", mods = "Control", action = "CreateNewWindow" }
+]
+
+[window]
+opacity = 0.95
+blur = true
+dynamic_padding = true
+title = "Terminal"
+
+[terminal]
+osc52 = "CopyPaste"
+
+[[hints.enabled]]
+command = "xdg-open" # On Linux/BSD
+# command = "open" # On macOS
+# command = { program = "cmd", args = [ "/c", "start", "" ] } # On Windows
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "O", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
