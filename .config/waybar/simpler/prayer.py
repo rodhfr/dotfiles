@@ -8,8 +8,6 @@ URL = "http://127.0.0.1:8080/stats"
 
 skill = "prayer"
 skill_icon = ""
-upper_good = 30
-upper_crit = 12
 
 
 try:
@@ -20,21 +18,31 @@ except Exception:
     sys.exit(0)
 
 boosted_active_skill_value = None
+skill_level = None
 
 for stat in data:
     if stat.get("stat", "").lower() == skill:
         boosted_active_skill_value = stat.get("boostedLevel")
+        skill_level = stat.get("level")
         break
 
-if boosted_active_skill_value is None:
+if boosted_active_skill_value is None or skill_level is None:
     print(json.dumps({"text": "RL: n/a"}), flush=True)
 else:
-    if boosted_active_skill_value >= upper_good:
-        state = "good"
-    elif boosted_active_skill_value >= upper_crit:
-        state = "critical"
+    nine_tens_value_color = skill_level * 0.90
+    three_fours_value_color = skill_level * 0.75
+    half_value_color = skill_level * 0.5
+    one_four_value_color = skill_level * 0.25
+    if boosted_active_skill_value >= nine_tens_value_color:
+        state = "upper_nine_tens_value_color"
+    elif boosted_active_skill_value >= three_fours_value_color:
+        state = "upper_three_fours_value_color"
+    elif boosted_active_skill_value >= half_value_color:
+        state = "upper_half_value_color"
+    elif boosted_active_skill_value >= one_four_value_color:
+        state = "upper_one_four_value_color"
     else:
-        state = "bad"
+        state = "upper_zero_color"
 
     print(
         json.dumps(

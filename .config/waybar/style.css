@@ -241,7 +241,7 @@ button:hover {
     }
 }
 
-#custom-runebar.green {
+#custom-activity_indicator.green {
     background-color: #00ff00; /* verde */
     color: #000000; /* texto preto */
     /* padding: 0 16px; */
@@ -251,7 +251,7 @@ button:hover {
     transition: background-color 0.5s ease; /* transição suave */
 }
 
-#custom-runebar.red {
+#custom-activity_indicator.red {
     background-color: #ff0000; /* vermelho */
     font-weight: bold; /* deixa o texto em negrito */
     color: #ffffff; /* texto branco */
@@ -262,7 +262,7 @@ button:hover {
     transition: background-color 0.5s ease; /* transição suave */
 }
 
-#custom-runebar.idle {
+#custom-activity_indicator.idle {
     background-color: #808080; /* fundo vermelho, ou qualquer cor que quiser */
     font-weight: bold;          /* negrito */
     color: #ffffff;             /* texto branco */
@@ -273,9 +273,9 @@ button:hover {
     opacity: 0;                 /* módulo escondido */
 }
 
-#custom-hp_indicator.good {
-    background-color: #90A583; /* verde */
-    color: #000000; /* texto preto */
+#custom-hp_indicator.upper_nine_tens_value_color {
+    background-color: #386641; /* verde */
+    color: #ffffff; /* texto preto */
     /* padding: 0 16px; */
     padding-left: 16px;   /* aumenta espaço à esquerda */
     padding-right: 16px;   /* aumenta espaço à esquerda */
@@ -283,19 +283,8 @@ button:hover {
     transition: background-color 0.5s ease; /* transição suave */
 }
 
-#custom-hp_indicator.critical {
-    background-color: #90A583; 
-    font-weight: bold; /* deixa o texto em negrito */
-    color: #ffffff; /* texto branco */
-    /* padding: 0 16px; */
-    padding-left: 16px;   /* aumenta espaço à esquerda */
-    padding-right: 16px;   /* aumenta espaço à esquerda */
-    border-radius: 3px;
-    transition: background-color 0.5s ease; /* transição suave */
-}
-
-#custom-hp_indicator.bad {
-    background-color: #942911; /* fundo vermelho, ou qualquer cor que quiser */
+#custom-hp_indicator.upper_three_fours_value_color {
+    background-color: #6a994e; /* fundo vermelho, ou qualquer cor que quiser */
     font-weight: bold;          /* negrito */
     color: #ffffff;             /* texto branco */
     padding-left: 16px;         /* mais espaço à esquerda */
@@ -304,33 +293,91 @@ button:hover {
     transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
 }
 
-#custom-prayer_indicator.good {
-    background-color: #0D1821; /* azul */
-    color: #ffffff; /* texto branco para contraste */
-    padding-left: 16px;
-    padding-right: 16px;
+#custom-hp_indicator.upper_half_value_color {
+    background-color: #a7c957; /* fundo vermelho, ou qualquer cor que quiser */
+    font-weight: bold;          /* negrito */
+    color: #ffffff;             /* texto branco */
+    padding-left: 16px;         /* mais espaço à esquerda */
+    padding-right: 16px;        /* espaço à direita */
     border-radius: 3px;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
 }
 
-#custom-prayer_indicator.critical {
-    background-color: #B4CDED; /* azul escuro */
-    font-weight: bold;
-    color: #ffffff;
-    padding-left: 16px;
-    padding-right: 16px;
+#custom-hp_indicator.upper_one_four_value_color {
+    background-color: #f2e8cf; /* fundo vermelho, ou qualquer cor que quiser */
+    font-weight: bold;          /* negrito */
+    color: #ffffff;             /* texto branco */
+    padding-left: 16px;         /* mais espaço à esquerda */
+    padding-right: 16px;        /* espaço à direita */
     border-radius: 3px;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
 }
 
-#custom-prayer_indicator.bad {
-    background-color: #F0F4EF; /* preto */
-    font-weight: bold;
-    color: #ffffff;
-    padding-left: 16px;
-    padding-right: 16px;
+#custom-hp_indicator.upper_zero_color {
+    background-color: #ff0000; /* fundo vermelho, ou qualquer cor que quiser */
+    font-weight: bold;          /* negrito */
+    color: #ffffff;             /* texto branco */
+    padding-left: 16px;         /* mais espaço à esquerda */
+    padding-right: 16px;        /* espaço à direita */
     border-radius: 3px;
-    transition: background-color 0.5s ease, opacity 0.5s ease;
-    opacity: 0; /* módulo escondido */
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
 }
 
+
+#custom-prayer_indicator.upper_nine_tens_value_color {
+    background-color: #0d1b2a; /* verde */
+    color: #ffffff; /* texto preto */
+    /* padding: 0 16px; */
+    padding-left: 16px;   /* aumenta espaço à esquerda */
+    padding-right: 16px;   /* aumenta espaço à esquerda */
+    border-radius: 3px;
+    transition: background-color 0.5s ease; /* transição suave */
+}
+
+#custom-prayer_indicator.upper_three_fours_value_color {
+    background-color: #1b263b; /* fundo vermelho, ou qualquer cor que quiser */
+    font-weight: bold;          /* negrito */
+    color: #ffffff;             /* texto branco */
+    padding-left: 16px;         /* mais espaço à esquerda */
+    padding-right: 16px;        /* espaço à direita */
+    border-radius: 3px;
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
+}
+
+#custom-prayer_indicator.upper_half_value_color {
+    background-color: #415a77; /* fundo vermelho, ou qualquer cor que quiser */
+    font-weight: bold;          /* negrito */
+    color: #ffffff;             /* texto branco */
+    padding-left: 16px;         /* mais espaço à esquerda */
+    padding-right: 16px;        /* espaço à direita */
+    border-radius: 3px;
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
+}
+
+#custom-prayer_indicator.upper_one_four_value_color {
+    background-color: #778da9; /* fundo vermelho, ou qualquer cor que quiser */
+    font-weight: bold;          /* negrito */
+    color: #ffffff;             /* texto branco */
+    padding-left: 16px;         /* mais espaço à esquerda */
+    padding-right: 16px;        /* espaço à direita */
+    border-radius: 3px;
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
+}
+
+#custom-prayer_indicator.upper_zero_color {
+    background-color: #ff0000; /* fundo vermelho, ou qualquer cor que quiser */
+    font-weight: bold;          /* negrito */
+    color: #ffffff;             /* texto branco */
+    padding-left: 16px;         /* mais espaço à esquerda */
+    padding-right: 16px;        /* espaço à direita */
+    border-radius: 3px;
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
+}
+
+#custom-prayer_indicator.idle {
+    opacity: 0;                 /* módulo escondido */
+}
+
+#custom-hp_indicator.idle {
+    opacity: 0;                 /* módulo escondido */
+}

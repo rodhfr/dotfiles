@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 
-from pprint import pprint
 from flask_socketio import SocketIO
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 import threading
 import time
+import logging
 import json
 import os
 
 app = Flask(__name__)
 app.config["aIJDaidjsaiodjsa"] = "sakdjasdasldjasdk"
 socketio = SocketIO(app)
+
+log = logging.getLogger("werkzeug")
+log.setLevel(logging.ERROR)
 
 
 def clear_term():
@@ -98,14 +101,14 @@ def handle_webhook():
     # if screenshot:
     #     # For example, save it locally
     #     screenshot.save(f"./uploads/{screenshot.filename}")
-    player_name = data["playerName"]
+    # player_name = data["playerName"]
     # print(player_name)
 
     if data["type"] == "EXTERNAL_PLUGIN":
         data_embed = data["embeds"][0]
         embed_description = data_embed["description"]
         # pprint(embed_description)
-        is_player_active = embed_description == "XP_DROP"
+        is_player_active = embed_description == "xp_drop"
         if is_player_active:
             Counter.last_active_time = time.time()
         # print("is_player_active:", Counter.activity_status)

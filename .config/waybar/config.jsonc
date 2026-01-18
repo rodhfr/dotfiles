@@ -11,15 +11,17 @@
     "sway/workspaces",
     // "custom/runebar",
     "sway/mode",
-    "sway/scratchpad"
+    "sway/scratchpad",
+    "custom/activity_indicator"
     // "custom/browser"
   ],
   "modules-center": [
-    "custom/hp_indicator",
-    "custom/prayer_indicator"
+    ""
     // "sway/window"
   ],
   "modules-right": [
+    "custom/hp_indicator",
+    "custom/prayer_indicator",
     "idle_inhibitor",
     "pulseaudio",
     "network",
@@ -240,15 +242,15 @@
       "hibernate": "systemctl hibernate"
     }
   },
-  "custom/runebar": {
+  "custom/activity_indicator": {
     "format": "{text}",
-    "exec": "python /home/rodhfr/.config/waybar/read_status.py",
+    "exec": "python /home/rodhfr/.config/waybar/runebar/activity.py",
     "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
     "return-type": "json"
   },
   "custom/hp_indicator": {
     "format": "{text}",
-    "exec": "python /home/rodhfr/.config/waybar/simpler/hp.py",
+    "exec": "python /home/rodhfr/.config/waybar/runebar/status.py hitpoints ''",
     "interval": 1,
     "signal": 10,
     "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
@@ -256,7 +258,7 @@
   },
   "custom/prayer_indicator": {
     "format": "{text}",
-    "exec": "python /home/rodhfr/.config/waybar/simpler/prayer.py",
+    "exec": "python /home/rodhfr/.config/waybar/runebar/status.py prayer ''",
     "interval": 1,
     "signal": 10,
     "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
