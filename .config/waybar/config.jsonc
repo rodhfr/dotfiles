@@ -9,14 +9,14 @@
   // Choose the order of the modules
   "modules-left": [
     "sway/workspaces",
-    "custom/runebar",
-    "custom/status_bar",
+    // "custom/runebar",
     "sway/mode",
-    "sway/scratchpad",
-    "custom/browser"
+    "sway/scratchpad"
+    // "custom/browser"
   ],
   "modules-center": [
-    ""
+    "custom/hp_indicator",
+    "custom/prayer_indicator"
     // "sway/window"
   ],
   "modules-right": [
@@ -243,14 +243,22 @@
   "custom/runebar": {
     "format": "{text}",
     "exec": "python /home/rodhfr/.config/waybar/read_status.py",
+    "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
+    "return-type": "json"
+  },
+  "custom/hp_indicator": {
+    "format": "{text}",
+    "exec": "python /home/rodhfr/.config/waybar/simpler/hp.py",
+    "interval": 1,
     "signal": 10,
     "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
     "return-type": "json"
   },
-  "custom/status_bar": {
+  "custom/prayer_indicator": {
     "format": "{text}",
-    "exec": "python /home/rodhfr/.config/waybar/read_status_http.py",
-    "signal": 11,
+    "exec": "python /home/rodhfr/.config/waybar/simpler/prayer.py",
+    "interval": 1,
+    "signal": 10,
     "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
     "return-type": "json"
   },

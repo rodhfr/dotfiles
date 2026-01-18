@@ -272,3 +272,65 @@ button:hover {
     transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
     opacity: 0;                 /* módulo escondido */
 }
+
+#custom-hp_indicator.good {
+    background-color: #90A583; /* verde */
+    color: #000000; /* texto preto */
+    /* padding: 0 16px; */
+    padding-left: 16px;   /* aumenta espaço à esquerda */
+    padding-right: 16px;   /* aumenta espaço à esquerda */
+    border-radius: 3px;
+    transition: background-color 0.5s ease; /* transição suave */
+}
+
+#custom-hp_indicator.critical {
+    background-color: #90A583; 
+    font-weight: bold; /* deixa o texto em negrito */
+    color: #ffffff; /* texto branco */
+    /* padding: 0 16px; */
+    padding-left: 16px;   /* aumenta espaço à esquerda */
+    padding-right: 16px;   /* aumenta espaço à esquerda */
+    border-radius: 3px;
+    transition: background-color 0.5s ease; /* transição suave */
+}
+
+#custom-hp_indicator.bad {
+    background-color: #942911; /* fundo vermelho, ou qualquer cor que quiser */
+    font-weight: bold;          /* negrito */
+    color: #ffffff;             /* texto branco */
+    padding-left: 16px;         /* mais espaço à esquerda */
+    padding-right: 16px;        /* espaço à direita */
+    border-radius: 3px;
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
+}
+
+#custom-prayer_indicator.good {
+    background-color: #0D1821; /* azul */
+    color: #ffffff; /* texto branco para contraste */
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 3px;
+    transition: background-color 0.5s ease;
+}
+
+#custom-prayer_indicator.critical {
+    background-color: #B4CDED; /* azul escuro */
+    font-weight: bold;
+    color: #ffffff;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 3px;
+    transition: background-color 0.5s ease;
+}
+
+#custom-prayer_indicator.bad {
+    background-color: #F0F4EF; /* preto */
+    font-weight: bold;
+    color: #ffffff;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 3px;
+    transition: background-color 0.5s ease, opacity 0.5s ease;
+    opacity: 0; /* módulo escondido */
+}
+

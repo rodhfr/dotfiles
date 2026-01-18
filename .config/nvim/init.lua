@@ -145,4 +145,21 @@ end
 
 -- Cria um comando :MdClip ou um atalho <leader>m
 vim.api.nvim_create_user_command("MdClip", insert_markdown_link_from_clipboard, {})
-vim.api.nvim_set_keymap("n", "<leader>m", ":MdClip<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", ".l", ":MdClip<CR>", { noremap = true, silent = true })
+
+-- atalho pra add code block
+vim.keymap.set("v", ".c", function()
+  local start_pos = vim.fn.getpos("v")
+  local end_pos = vim.fn.getpos(".")
+
+  local start_line = start_pos[2]
+  local end_line = end_pos[2]
+
+  vim.api.nvim_buf_set_lines(0, start_line - 1, start_line - 1, false, { "```" })
+
+  end_line = end_line + 1
+
+  vim.api.nvim_buf_set_lines(0, end_line, end_line, false, { "```" })
+
+  vim.cmd("normal! kA")
+end, { noremap = true, silent = true })
