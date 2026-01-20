@@ -27,7 +27,7 @@ class Counter:
 
 
 def activity_monitor():
-    maxTimeActivityFalse = 8
+    maxTimeActivityFalse = 15
     while True:
         now = time.time()
         elapsed_fn = now - Counter.last_active_time
@@ -83,31 +83,21 @@ def about():
 
 @app.route("/webhook", methods=["POST"])
 def handle_webhook():
-    # Step 1: Grab the 'payload_json' from the multipart form
     payload_json = request.form.get("payload_json")
     # print(payload_json)
 
     if not payload_json:
         return jsonify({"error": "No payload_json provided"}), 400
 
-    # Step 2: Parse it as JSON
     try:
         data = json.loads(payload_json)
     except json.JSONDecodeError:
         return jsonify({"error": "Invalid JSON"}), 400
 
-    # Step 3: Optionally handle the file (screenshot)
-    # screenshot = request.files.get("file")
-    # if screenshot:
-    #     # For example, save it locally
-    #     screenshot.save(f"./uploads/{screenshot.filename}")
-    # player_name = data["playerName"]
-    # print(player_name)
-
     if data["type"] == "EXTERNAL_PLUGIN":
         data_embed = data["embeds"][0]
         embed_description = data_embed["description"]
-        # pprint(embed_description)
+        # print(embed_description)
         is_player_active = embed_description == "xp_drop"
         if is_player_active:
             Counter.last_active_time = time.time()
@@ -116,9 +106,6 @@ def handle_webhook():
         Counter.value += 1
         if Counter.value > 1000:
             Counter.value = 0
-        # print("Contador atual:", Counter.value)
-    # Step 4: Process the JSON data
-    # Example: just return it for demonstration
     return jsonify({"received": data}), 200
 
 

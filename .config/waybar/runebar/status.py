@@ -19,7 +19,7 @@ try:
     with urllib.request.urlopen(URL, timeout=1) as response:
         data = json.load(response)
 except Exception:
-    print(json.dumps({"text": "RL: offline"}), flush=True)
+    print(json.dumps({"text": ""}), flush=True)
     sys.exit(0)
 
 # Find the skill in data
