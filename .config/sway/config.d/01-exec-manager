@@ -1,0 +1,77 @@
+# @rodhfr sway config
+
+########################################################################################
+############################# Exec Manager #############################################
+## Start nm-applet tray icon (only if using NetworkManager)
+exec --no-startup-id nm-applet
+
+### MAKE XDG WORK IF NOT LAUNCHING VIA GDM OR SDDM:
+#export XDG_SESSION_DESKTOP=sway
+#export XDG_SESSION_TYPE=wayland
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec dex-autostart --autostart --environment sway
+
+## Set Dark Gnome Theme for Libadwaita Apps
+#exec gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+## Start polkit for authentication
+exec /usr/bin/lxpolkit
+
+# Make Android USB connections work and other types of mounts
+#exec /usr/libexec/gvfsd &
+#exec /usr/libexec/gvfsd-fuse /run/user/$(id -u)/gvfs -f &
+#exec /usr/libexec/gvfs-udisks2-volume-monitor &
+#exec /usr/libexec/gvfs-mtp-volume-monitor &
+
+## Start app remapping keyd
+exec keyd-application-mapper -d
+
+## Clipboard Manager
+exec_always sh -c 'pgrep -x wl-paste >/dev/null || /usr/bin/wl-paste --watch /home/rodhfr/go/bin/cliphist store'
+
+## Notification Daemon
+exec_always swaync
+
+## Start Tray Services
+exec_always python ~/.config/waybar/tray/audio_tray.py
+exec_always python ~/.config/waybar/tray/select_scale.py
+
+
+## Wayvnc start
+# exec_always wayvnc -g
+
+## Dynamic Window Tiling
+exec_always ~/.local/bin/autotiling
+
+## Restart portal
+exec_always systemctl --user restart xdg-desktop-portal.service
+
+
+## Start Kanata
+#exec_always "~/.config/kanata-tray/kanata-tray-linux.sh"
+
+
+# exec wl-paste --type image --watch cliphist store
+
+## Bluetooth Autoconnect
+#exec ~/.config/sway/bluetooth/connect/bls-b21
+
+## Autostart
+exec bash ~/.config/sway/scripts/startup.bash
+
+## Enable sunshine
+exec systemctl --user restart sunshine
+########################################################################################
+########################################################################################
+
+
+########################################################################################
+############################### Wallpaper Config #######################################
+# Folder location
+# Randomly select a wallpaper from the folder ~/Pictures/Wallpapers
+exec_always pkill swaybg && sleep 0.1 && swaybg -i "$(find ~/.config/wallpapers/ -type f | shuf -n 1)" -m fill
+########################################################################################
+########################################################################################

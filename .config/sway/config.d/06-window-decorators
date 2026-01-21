@@ -1,0 +1,28 @@
+################################# Sway Window Decorators ###############################
+## Sway Bar Config
+bar {
+    swaybar_command waybar
+    position top
+    mode invisible 
+    #modifier Mod4
+}
+
+## Container Border
+default_border pixel 3
+# smart_borders: Disable Border if Solitary Container
+smart_borders on
+
+## Container Gaps
+# smart_gaps: Disable Gaps if Solitary Container
+smart_gaps on
+gaps inner 5
+gaps outer 5
+
+## Container Border Colours
+client.focused          #777777 #777777 #777777 #777777
+client.focused_inactive #00000000 #00000000 #00000000 #00000000
+client.unfocused        #00000000 #00000000 #00000000 #00000000
+client.urgent           #ff0000 #ff0000 #ff0000 #ffffff
+########################################################################################
+########################################################################################
+

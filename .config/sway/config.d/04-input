@@ -1,0 +1,17 @@
+# @rodhfr sway config
+########################################################################################
+############################### Input Config ###########################################
+## Activate compose keys
+# Useful for remapping programs like keyd/kanata or unicode glyphs and accentuation.
+input * xkb_options "compose:menu" 
+
+## Settings for all inputs
+input "*" {
+    accel_profile "flat"
+    pointer_accel 0
+    tap enabled 
+}
+########################################################################################
+########################################################################################
+
+
