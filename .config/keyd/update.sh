@@ -1,6 +1,29 @@
 #!/bin/bash
-rm -rf /home/rodhfr/.config/keyd/
-mkdir -p /home/rodhfr/.config/keyd/
-cp -rf ./* /home/rodhfr/.config/keyd/
-sudo sh /home/rodhfr/.config/keyd/install.sh
-echo "Keyd config reloaded"
+set -e
+
+echo "Resetting /etc/keyd..."
+sudo rm -rf /etc/keyd
+sudo mkdir -p /etc/keyd/
+echo "OK."
+
+echo "Copying include files..."
+for f in /home/rodhfr/.config/keyd/include/*; do
+  [ -e "$f" ] || continue
+  echo "Copying $(basename "$f")"
+  sudo cp "$f" /etc/keyd/
+done
+echo "OK."
+
+echo "Copying config files..."
+for f in /home/rodhfr/.config/keyd/*.conf; do
+  [ -e "$f" ] || continue
+  echo "Copying $(basename "$f")"
+  sudo cp "$f" /etc/keyd/
+done
+echo "OK."
+
+echo "Restarting keyd..."
+sudo systemctl enable --now keyd
+sudo systemctl restart keyd
+sudo keyd reload
+echo "Done."
