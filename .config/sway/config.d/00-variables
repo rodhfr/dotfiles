@@ -18,7 +18,7 @@ set $systemresources htop
 set $texteditor nvim
 
 ## Set hotkeys for editing config
-set $edit-sway-config $tty -e nvim -n ~/.config/sway/config
+set $edit-sway-config $tty -e nvim -n ~/.config/sway/config.d/05-hotkeys
 
 ## Set initial workspace
 workspace 1

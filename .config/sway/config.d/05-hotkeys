@@ -165,27 +165,25 @@ bindsym $mod+Ctrl+9 move container to workspace 9
 bindsym $mod+Ctrl+0 move container to workspace 0
 
 ## Move Focused Window Arrow Keys while maintaining focus
-bindsym $mod+Shift+left mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab" 
-bindsym $mod+Shift+down mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
-bindsym $mod+Shift+up mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
-bindsym $mod+Shift+right mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+left mark swap, focus left, swap container with mark swap, focus left
+bindsym $mod+Shift+up mark swap, focus up, swap container with mark swap, focus up
+bindsym $mod+Shift+down mark swap, focus down, swap container with mark swap, focus down
+bindsym $mod+Shift+right mark swap, focus right, swap container with mark swap, focus right
 
 ## Move Focused Window wsad while maintaining focus
 # Arrow keys
-bindsym $mod+Shift+a mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab" 
-bindsym $mod+Shift+s mark swap, focus up, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
-bindsym $mod+Shift+w mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
-bindsym $mod+Shift+d mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+a mark swap, focus left, swap container with mark swap, focus left
+bindsym $mod+Shift+s mark swap, focus up, swap container with mark swap, focus up
+bindsym $mod+Shift+w mark swap, focus down, swap container with mark swap, focus down
+bindsym $mod+Shift+d mark swap, focus right, swap container with mark swap, focus right
 
 # Vim motions
-bindsym $mod+Shift+h mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab" 
-bindsym $mod+Shift+k mark swap, focus up, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
-bindsym $mod+Shift+j mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
-bindsym $mod+Shift+l mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+h mark swap, focus left, swap container with mark swap, focus left
+bindsym $mod+Shift+k mark swap, focus up, swap container with mark swap, focus up
+bindsym $mod+Shift+j mark swap, focus down, swap container with mark swap, focus down
+bindsym $mod+Shift+l mark swap, focus right, swap container with mark swap, focus right
 
 ## invert layout
-bindsym $mod+Ctrl+a move left, move left, move left
-bindsym $mod+Ctrl+d move right, move right, move right
 bindsym $mod+left move left
 bindsym $mod+right move right
 bindsym $mod+up move up
@@ -231,71 +229,8 @@ bindsym Alt+Ctrl+j seat seat0 cursor move 0 15
 bindsym Alt+Ctrl+k seat seat0 cursor move 0 -15
 bindsym Alt+Ctrl+l seat seat0 cursor move 15 0 
 
-mode Mouse {
-    #bindsym a mode default, exec 'wl-kbptr-sway-active-win; swaymsg mode Mouse'
-    bindsym Shift+a mode default, exec 'wl-kbptr; swaymsg mode Mouse'
-
-    # Mouse move
-    bindsym Ctrl+h seat seat0 cursor move -15 0
-    bindsym Ctrl+j seat seat0 cursor move 0 15
-    bindsym Ctrl+k seat seat0 cursor move 0 -15
-    bindsym Ctrl+l seat seat0 cursor move 15 0
-    
-    bindsym h seat seat0 cursor move -60 0
-    bindsym j seat seat0 cursor move 0 60
-    bindsym k seat seat0 cursor move 0 -60
-    bindsym l seat seat0 cursor move 60 0
-
-    bindsym Shift+h seat seat0 cursor move -400 0
-    bindsym Shift+j seat seat0 cursor move 0 400 
-    bindsym Shift+k seat seat0 cursor move 0 -400
-    bindsym Shift+l seat seat0 cursor move 400 0
-
-    bindsym 1 seat seat0 cursor press button1
-    bindsym --release 2 seat seat0 cursor release button1
-
-    bindsym a seat seat0 cursor press button1
-    bindsym --release a seat seat0 cursor release button1
-
-    # Middle button
-    bindsym s seat seat0 cursor press button2
-    bindsym --release s seat seat0 cursor release button2
-
-    # Right button
-    bindsym d seat seat0 cursor press button3
-    bindsym --release d seat seat0 cursor release button3
-
-    bindsym Escape mode default
-}
-#bindsym f8 exec "wlrctl pointer scroll 30"
-#bindsym f9 exec "wlrctl pointer scroll -30"
-
-## Music Downloader
-#bindsym $mod+m exec ~/.config/fuzzel/musisdown.sh
-
 ## Alt Tab but $mod+Tab for workspaces
 bindsym $mod+Tab workspace back_and_forth
-
-## Alt Tab for Windows
-bindsym $mod+i exec ~/.config/sway/scripts/window-changer/sway_alt_tab 
-
-## Disabled:
-# Scratchpad:
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    #bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    #bindsym $mod+minus scratchpad show
-# bindsym $mod+Shift+minus move scratchpad
-# bindsym $mod+minus scratchpad show
-
-# wl-miror hotkey
-#bindsym $mod+m workspace 8 ; workspace 9
-#bindsym $mod+m workspace $ws8 ; exec wl-mirror -s e eDP-1 ; workspace $ws9 
 ########################################################################################
 ########################################################################################
 
@@ -306,13 +241,6 @@ bindsym $mod+i exec ~/.config/sway/scripts/window-changer/sway_alt_tab
 ## Menu Launcher
 bindsym $mod+x exec --no-startup-id fuzzel
 bindsym $mod+g exec --no-startup-id fuzzel
-# bindsym $mod+c exec --no-startup-id fuzzel 
-
-## Clipboard Manager hotkey
-### To use cliphist 
-# bindsym $mod+u exec rofi -modi clipboard:~/.config/rofi/cliphist-rofi-img -show clipboard -show-icons -theme rounded-gray-dark
-#bindsym $mod+u exec cliphist list | rofi -dmenu -show-icons -theme rounded-gray-dark | cliphist decode | wl-copy
-#bindsym $mod+u exec /home/rodhfr/.config/rofi/get_clipboard.sh
 
 bindsym $mod+u exec fish -c "cliphist list | rofi -dmenu -show-icons -theme rounded-gray-dark | cliphist decode | wl-copy"
 
@@ -331,8 +259,7 @@ bindsym $mod+f exec $browser
 bindsym $mod+v exec $audiogui 
 
 ## File Explorer
-bindsym $mod+e workspace --no-auto-back-and-forth 7 ; exec nautilus
-bindsym $mod+Ctrl+e workspace --no-auto-back-and-forth 7 ; exec nautilus --new-window
+bindsym $mod+e exec nautilus --new-window
 
 ## Notification Menu
 bindsym $mod+n exec swaync-client -t
@@ -347,22 +274,5 @@ bindsym $mod+Ctrl+p exec notify-send -t 4000 "🎨 Select Hex Colour" && grim -g
 
 ## Quick Change Sway Config
 bindsym $mod+Shift+y exec $edit-sway-config
-
-## System Resources
-bindsym $mod+t exec $tty -e $systemresources 
-
-
-## Disabled:
-# Quick Notes
-# bindsym $mod+y exec $tty -e $texteditor -n ~/.note-swap.md
-
-## Floating Terminal while in Tilling Mode
-# bindsym $mod+t exec $tty --class floatingterm
-
-## Mpv Open Clipboard Link
-# bindsym $mod+m exec ~/.config/sway/scripts/paste_mpv
-# bindsym f12 exec mpv --fullscreen --player-operation-mode=pseudo-gui -- %U
-# bindsym f11 exec pkill mpv
-
 ########################################################################################
 ########################################################################################
