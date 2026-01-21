@@ -1,0 +1,36 @@
+---
+name: Hollow Knight
+drives:
+  drive-0: ""
+backups:
+  - name: "."
+    when: "2025-10-18T01:51:38.270339692Z"
+    os: linux
+    files:
+      /home/rodhfr/Games/Heroic/Prefixes/default/Hollow Knight/drive_c/users/steamuser/AppData/LocalLow/Team Cherry/Hollow Knight/Player-prev.log:
+        hash: ce591d5e9c2ea19c7c19af772e557630fb006453
+        size: 3285
+      /home/rodhfr/Games/Heroic/Prefixes/default/Hollow Knight/drive_c/users/steamuser/AppData/LocalLow/Team Cherry/Hollow Knight/Player.log:
+        hash: 571edbd19ea24ff2bd0436cefda99adffe98ed98
+        size: 77651
+      /home/rodhfr/Games/Heroic/Prefixes/default/Hollow Knight/drive_c/users/steamuser/AppData/LocalLow/Team Cherry/Hollow Knight/user1.dat:
+        hash: 9ff748bddbfc3acc48536a2120429c69aa081d4a
+        size: 80434
+      /home/rodhfr/Games/Heroic/Prefixes/default/Hollow Knight/drive_c/users/steamuser/AppData/LocalLow/Team Cherry/Hollow Knight/user1.dat.bak1:
+        hash: f689f2ee72e285ca0c34973809114a5eb2dae0fb
+        size: 80434
+      /home/rodhfr/Games/Heroic/Prefixes/default/Hollow Knight/drive_c/users/steamuser/AppData/LocalLow/Team Cherry/Hollow Knight/user1_1.5.78.11833.dat:
+        hash: 9ff748bddbfc3acc48536a2120429c69aa081d4a
+        size: 80434
+      /home/rodhfr/Games/Heroic/Prefixes/default/Hollow Knight/system.reg:
+        hash: 39e07ad5ec1f0d2cf09dd7eaa76fb45855da5aa1
+        size: 3952418
+      /home/rodhfr/Games/Heroic/Prefixes/default/Hollow Knight/user.reg:
+        hash: 453218d4dc64d20641adf478a87a9d52e65ab341
+        size: 114085
+      /home/rodhfr/Games/Heroic/Prefixes/default/Hollow Knight/userdef.reg:
+        hash: 55db28323e9a6e33d4eb52617a329ac359b7c2cd
+        size: 4190
+    registry:
+      hash: ~
+    children: []

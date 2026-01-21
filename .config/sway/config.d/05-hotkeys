@@ -165,23 +165,23 @@ bindsym $mod+Ctrl+9 move container to workspace 9
 bindsym $mod+Ctrl+0 move container to workspace 0
 
 ## Move Focused Window Arrow Keys while maintaining focus
-bindsym $mod+Shift+left mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab" 
-bindsym $mod+Shift+down mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
-bindsym $mod+Shift+up mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
-bindsym $mod+Shift+right mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
+bindsym $mod+Shift+left mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab" 
+bindsym $mod+Shift+down mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+up mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+right mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
 
 ## Move Focused Window wsad while maintaining focus
 # Arrow keys
-bindsym $mod+Shift+a mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab" 
-bindsym $mod+Shift+s mark swap, focus up, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
-bindsym $mod+Shift+w mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
-bindsym $mod+Shift+d mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
+bindsym $mod+Shift+a mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab" 
+bindsym $mod+Shift+s mark swap, focus up, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+w mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+d mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
 
 # Vim motions
-bindsym $mod+Shift+h mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab" 
-bindsym $mod+Shift+k mark swap, focus up, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
-bindsym $mod+Shift+j mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
-bindsym $mod+Shift+l mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/window-changer/sway_alt_tab"
+bindsym $mod+Shift+h mark swap, focus left, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab" 
+bindsym $mod+Shift+k mark swap, focus up, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+j mark swap, focus down, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
+bindsym $mod+Shift+l mark swap, focus right, swap container with mark swap, exec "~/.config/sway/scripts/sway_alt_tab"
 
 ## invert layout
 bindsym $mod+Ctrl+a move left, move left, move left

@@ -1,5 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+require("config.sway")
 
 -- copy everything with ctrl c
 vim.keymap.set("n", "<C-c>", ":%y+<CR>", { noremap = true, silent = true })

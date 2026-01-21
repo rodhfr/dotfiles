@@ -1,0 +1,88 @@
+Mono path[0] = 'S:/Games/Heroic/Prefixes/default/Title/drive_c/GOG Games/Hollow Knight/Hollow Knight_Data/Managed'
+Mono config path = 'S:/Games/Heroic/Prefixes/default/Title/drive_c/GOG Games/Hollow Knight/MonoBleedingEdge/etc'
+Initialize engine version: 2020.2.2f1 (068178b99f32)
+[Subsystems] Discovering subsystems at path S:/Games/Heroic/Prefixes/default/Title/drive_c/GOG Games/Hollow Knight/Hollow Knight_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(R) Xe Graphics (TGL GT2) (ID=0x9a49)
+    Vendor:   
+    VRAM:     5717 MB
+    Driver:   31.0.21902.5
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.106 seconds
+OnLevelWasLoaded was found on GameMap
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+OnLevelWasLoaded was found on PlayMakerUnity2d
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+D3D11 device created for Microsoft Media Foundation video decoding.
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+The class named 'ConfigManager' is abstract. The script class can't be abstract!
+
+UnloadTime: 1.457100 ms
+Graphics tier changed to High
+
+GOG signing in...
+
+Selected online subsystem GOGGalaxyOnlineSubsystem
+
+Discovered supported languages: DE, EN, ES, FR, IT, JA, KO, PT, RU, ZH
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+Loaded saved language code 'EN'
+
+Restored language code 'EN'
+
+
+Unloading 362 unused Assets to reduce memory usage. Loaded Objects now: 3824.
+Total: 1.365000 ms (FindLiveObjects: 0.143000 ms CreateObjectMapping: 0.119500 ms MarkObjects: 1.024400 ms  DeleteObjects: 0.077700 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+Didn't need to wait for PlayerPrefs load.
+
+UnloadTime: 3.500800 ms
+DontDestroyOnLoad only works for root GameObjects or components on root GameObjects.
+
+Performing automatic level start.
+
+Game controller set to None.
+
+
+Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 45155.
+Total: 111.186900 ms (FindLiveObjects: 3.537700 ms CreateObjectMapping: 4.485600 ms MarkObjects: 103.024600 ms  DeleteObjects: 0.138000 ms)
+
+GOG authorization failed: FAILURE_REASON_GALAXY_SERVICE_NOT_AVAILABLE
+
+Joystick connected ("8BitDo Ultimate 2C Wireless Controller").
+
+Game controller XInput Controller attached
+
+Controller Type: XboxOne
+
+Active Gamepad Type: XBOX_ONE
+
+Joystick connected ("input-remapper 8BitDo 8BitDo Ultimate 2C Wireless Controller forwarded").
+
+Game controller XInput Controller attached
+
+Controller Type: XboxOne
+
+Active Gamepad Type: XBOX_ONE
+
+Game controller set to XInput Controller.
+
+Controller Type: XboxOne
+
+Active Gamepad Type: XBOX_ONE
+
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 31c -> priority: 1 
+  Thread -> id: 320 -> priority: 1 
+  Thread -> id: 324 -> priority: 1 
+  Thread -> id: 328 -> priority: 1 
