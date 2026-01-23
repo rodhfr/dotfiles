@@ -241,7 +241,7 @@ button:hover {
     }
 }
 
-#custom-activity_indicator.green {
+#custom-osrs_activity.green {
     background-color: #00ff00; /* verde */
     color: #000000; /* texto preto */
     /* padding: 0 16px; */
@@ -251,7 +251,7 @@ button:hover {
     transition: background-color 0.5s ease; /* transição suave */
 }
 
-#custom-activity_indicator.red {
+#custom-osrs_activity.red {
     background-color: #ff0000; /* vermelho */
     font-weight: bold; /* deixa o texto em negrito */
     color: #ffffff; /* texto branco */
@@ -260,17 +260,6 @@ button:hover {
     padding-right: 16px;   /* aumenta espaço à esquerda */
     border-radius: 3px;
     transition: background-color 0.5s ease; /* transição suave */
-}
-
-#custom-activity_indicator.idle {
-    background-color: #808080; /* fundo vermelho, ou qualquer cor que quiser */
-    font-weight: bold;          /* negrito */
-    color: #ffffff;             /* texto branco */
-    padding-left: 16px;         /* mais espaço à esquerda */
-    padding-right: 16px;        /* espaço à direita */
-    border-radius: 3px;
-    transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
-    opacity: 0;                 /* módulo escondido */
 }
 
 #custom-hp_indicator.upper_nine_tens_value_color {
@@ -372,6 +361,10 @@ button:hover {
     padding-right: 16px;        /* espaço à direita */
     border-radius: 3px;
     transition: background-color 0.5s ease, opacity 0.5s ease; /* transição suave */
+}
+
+#custom-osrs_activity.idle {
+    opacity: 0;                 /* módulo escondido */
 }
 
 #custom-prayer_indicator.idle {

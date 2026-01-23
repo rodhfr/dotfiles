@@ -240,7 +240,9 @@ bindsym $mod+Tab workspace back_and_forth
 ################################# Launcher Hotkeys #####################################
 ## Menu Launcher
 bindsym $mod+x exec --no-startup-id fuzzel
-bindsym $mod+g exec --no-startup-id fuzzel
+bindsym $mod+g exec brightnessctl set 1 && pkill dim
+bindsym $mod+Shift+g exec dim -d 0 -p -a 0.025
+
 
 bindsym $mod+u exec fish -c "cliphist list | rofi -dmenu -show-icons -theme rounded-gray-dark | cliphist decode | wl-copy"
 
@@ -262,7 +264,10 @@ bindsym $mod+v exec $audiogui
 bindsym $mod+e exec nautilus --new-window
 
 ## Notification Menu
-bindsym $mod+n exec swaync-client -t
+bindsym $mod+Shift+n exec swaync-client -t
+
+## Launch Neovim
+bindsym $mod+n exec $tty -e nvim
 
 ## Bluetooth Manager
 bindsym $mod+b exec flatpak run io.github.ebonjaeger.bluejay

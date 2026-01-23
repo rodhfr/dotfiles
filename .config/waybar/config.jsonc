@@ -20,6 +20,7 @@
     // "sway/window"
   ],
   "modules-right": [
+    "custom/osrs_activity",
     "custom/hp_indicator",
     "custom/prayer_indicator",
     "idle_inhibitor",
@@ -245,6 +246,14 @@
   "custom/activity_indicator": {
     "format": "{text}",
     "exec": "python /home/rodhfr/.config/waybar/runebar/activity.py",
+    "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
+    "return-type": "json"
+  },
+  "custom/osrs_activity": {
+    "format": "{text}",
+    "exec": "bash /home/rodhfr/.config/waybar/runebar/activity.bash",
+    "interval": 1,
+    "signal": 10,
     "on-click": "swaymsg '[class=\"net-runelite-client-RuneLite\"] focus'",
     "return-type": "json"
   },

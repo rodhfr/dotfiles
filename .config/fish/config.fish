@@ -3,6 +3,7 @@ starship init fish | source
 set PATH $PATH /home/rodhfr/.local/bin
 set PATH $PATH /home/rodhfr/go/bin/
 set EDITOR nvim
+set SWAYSOCK /run/user/1000/sway-ipc.1000.1111939.sock
 
 zoxide init fish | source
 

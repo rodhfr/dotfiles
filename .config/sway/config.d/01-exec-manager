@@ -39,9 +39,6 @@ exec_always swaync
 exec_always python ~/.config/waybar/tray/audio_tray.py
 exec_always python ~/.config/waybar/tray/select_scale.py
 
-## alt tab
-exec_always python ~/.config/sway/scripts/sway_alt_tab daemon
-
 ## Wayvnc start
 # exec_always wayvnc -g
 

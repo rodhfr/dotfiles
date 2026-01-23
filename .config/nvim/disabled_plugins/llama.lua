@@ -1,0 +1,11 @@
+-- return {
+--   {
+--     "ggml-org/llama.vim",
+--     init = function()
+--       vim.g.llama_config = {
+--         show_info = 2,
+--         endpoint = "http://192.168.1.150:8012/infill",
+--       }
+--     end,
+--   },
+-- }
