@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 
-import time, threading, re, os, json
+import time
+import threading
+import re
+import os
+import json
+
 from flask import Flask, request, jsonify
 
 DEFAULT_INACTIVE_SECONDS = 15
 IDLE_SECONDS = 600
 WAYBAR_SIGNAL = "pkill -SIGRTMIN+10 waybar"
 CONFIG_FILE = os.path.join(os.path.dirname(__file__), "skill_config.json")
+
 
 def load_skill_config():
     try:
@@ -29,7 +35,9 @@ class ActivityTracker:
     def set_skill(self, skill_name):
         with self._lock:
             self._current_skill = skill_name
-            self._inactive_seconds = self._skill_timeouts.get(skill_name, self._default_timeout)
+            self._inactive_seconds = self._skill_timeouts.get(
+                skill_name, self._default_timeout
+            )
 
     def mark_active(self):
         with self._lock:
@@ -73,9 +81,11 @@ app = Flask(__name__)
 skill_config = load_skill_config()
 tracker = ActivityTracker(skill_config)
 
+
 @app.route("/stats")
 def stats():
     return jsonify(tracker.snapshot())
+
 
 @app.route("/webhook", methods=["POST"])
 def webhook():

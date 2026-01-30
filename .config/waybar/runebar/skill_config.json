@@ -1,6 +1,8 @@
 {
   "default": 15,
   "mining": 15,
+  "attack": 15,
+  "crafting": 15,
   "fishing": 12,
   "woodcutting": 60
 }
