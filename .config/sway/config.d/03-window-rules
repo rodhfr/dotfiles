@@ -3,20 +3,20 @@
 ########################################################################################
 ############################### Window Rules ###########################################
 ## Floating Rule
-for_window [app_id="floatingterm"] floating enable, border normal, resize set width 58ppt height 70ppt, move position center, border none
-for_window [title="Picture-in-Picture"]  floating enable, border pixel 1, sticky enable, resize set width 400px height 225px, move position 1500 10
+# for_window [app_id="floatingterm"] floating enable, border normal, resize set width 58ppt height 70ppt, move position center, border none
+# for_window [title="Picture-in-Picture"]  floating enable, border pixel 1, sticky enable, resize set width 400px height 225px, move position 1500 10
 #for_window [title="Picture in picture"]  floating enable, border pixel 1, sticky enable, resize set width 400px height 225px, move position 1500 10
-for_window [title="Picture in picture"]  floating enable, border pixel 1, sticky enable, resize set width 268px height 164px, move position 1610 30
+# for_window [title="Picture in picture"]  floating enable, border pixel 1, sticky enable, resize set width 268px height 164px, move position 1610 30
 
 
 ## Window to Specific Workspace
-for_window [class="com.adamcake.Bolt"] move --no-auto-back-and-forth container to workspace 1
-for_window [class="net-runelite-client-RuneLite"] move --no-auto-back-and-forth container to workspace 1
+#for_window [class="com.adamcake.Bolt"] move --no-auto-back-and-forth container to workspace 1
+# for_window [class="net-runelite-client-RuneLite"] move --no-auto-back-and-forth container to workspace 1
 
 ## Remote Management Windows
-for_window [app_id="de.feschber.LanMouse"] move --no-auto-back-and-forth container to workspace "remote", focus
-for_window [app_id="rustdesk"] move --no-auto-back-and-forth container to workspace "remote"
-for_window [app_id="org.kde.kdeconnect.app"] move --no-auto-back-and-forth container to workspace "remote", focus
+# for_window [app_id="de.feschber.LanMouse"] move --no-auto-back-and-forth container to workspace "remote", focus
+# for_window [app_id="rustdesk"] move --no-auto-back-and-forth container to workspace "remote"
+# for_window [app_id="org.kde.kdeconnect.app"] move --no-auto-back-and-forth container to workspace "remote", focus
 
 ## Enable/Disable active focus when window is open.
 focus_on_window_activation focus
