@@ -2,3 +2,19 @@ wlroots detected
 Daemonizing, log output will be stored in /home/rodhfr/.config/keyd/app.log...
 wlroots detected
 Daemonizing, log output will be stored in /home/rodhfr/.config/keyd/app.log...
+wlroots detected
+Daemonizing, log output will be stored in /home/rodhfr/.config/keyd/app.log...
+Traceback (most recent call last):
+  File "/usr/bin/keyd-application-mapper", line 589, in <module>
+    mon.run()
+    ~~~~~~~^^
+  File "/usr/bin/keyd-application-mapper", line 271, in run
+    for msg in new_interruptible_generator(self.wl.sock, self.wl.recv_msg):
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/bin/keyd-application-mapper", line 111, in new_interruptible_generator
+    yield event_fn()
+          ~~~~~~~~^^
+  File "/usr/bin/keyd-application-mapper", line 219, in recv_msg
+    (object_id, evcode) = struct.unpack('II', self.sock.recv(8))
+                          ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+struct.error: unpack requires a buffer of 8 bytes
