@@ -1,14 +1,6 @@
 ########################################################################################
 ################################# System Controls #######################################
 
-## Rofi Dmenu exec entries
-bindsym $mod+Shift+Ctrl+w exec fish ~/.local/bin/rswiki.fish
-bindsym $mod+Shift+Ctrl+y exec fish ~/.local/bin/ytmp3.fish
-bindsym $mod+Shift+Ctrl+n exec fish ~/.local/bin/nyaa.fish
-bindsym $mod+Shift+Ctrl+a exec fish ~/.local/bin/anilist.fish
-bindsym $mod+Shift+Ctrl+m exec fish ~/.local/bin/myanimelist.fish
-bindsym $mod+Shift+Ctrl+l exec fish ~/.local/bin/letterboxd.fish
-
 ## KP_LAYER Keyd
 bindsym Alt+Shift+Ctrl+f exec $browser
 bindsym Alt+Shift+Ctrl+r exec flatpak run com.adamcake.Bolt
@@ -90,7 +82,7 @@ workspace 6 output HDMI-A-1
 workspace 7 output HDMI-A-1
 workspace 8 output HDMI-A-1
 workspace 9 output HDMI-A-1
-workspace 0 output HDMI-A-1
+workspace 0 output eDP-1
 
 ## Focus: If want alternative display hotkeys
 #bindsym $mod2+1 workspace 21
