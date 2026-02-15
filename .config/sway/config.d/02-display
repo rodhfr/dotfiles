@@ -4,7 +4,8 @@
 ############################### Display Output #########################################
 ## Notebook monitor to the right
 #output eDP-1 pos 1920 0 scale 1.5
-output eDP-1 enable pos 0 0
+#output eDP-1 enable pos 0 0
+output eDP-1 disable
 output HDMI-A-1 pos 1920 0 resolution 1920x1080@74.973Hz 
 
 # Notebook Monitor to the Right (example)
