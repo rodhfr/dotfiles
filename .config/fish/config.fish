@@ -3,9 +3,9 @@ starship init fish | source
 set PATH $PATH /home/rodhfr/.local/bin
 set PATH $PATH /home/rodhfr/go/bin/
 set EDITOR nvim
-if not set -q SWAYSOCK; or not test -S $SWAYSOCK
-    set -gx SWAYSOCK (ls -t /run/user/1000/sway-ipc.*.sock 2>/dev/null | head -n1)
-end
+# if not set -q SWAYSOCK; or not test -S $SWAYSOCK
+#     set -gx SWAYSOCK (ls -t /run/user/1000/sway-ipc.*.sock 2>/dev/null | head -n1)
+# end
 
 zoxide init fish | source
 
