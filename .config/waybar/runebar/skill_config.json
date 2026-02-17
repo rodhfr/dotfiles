@@ -4,5 +4,6 @@
   "attack": 15,
   "crafting": 15,
   "fishing": 12,
-  "woodcutting": 60
+  "woodcutting": 60,
+  "fletching": 3
 }
