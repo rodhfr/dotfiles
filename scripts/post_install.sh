@@ -70,6 +70,7 @@ sudo dnf in -y \
   fuse-libs \
   pipx \
   rclone \
+  alacritty \
   neovim \
   unzip \
   p7zip \
@@ -111,7 +112,7 @@ flatpak install -y --user flathub \
   org.localsend.localsend_app
 
 # startship install
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # setup shell
