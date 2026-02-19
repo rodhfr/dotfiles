@@ -4,6 +4,10 @@ GREEN="\033[1;32m"
 RED="\033[1;31m"
 RESET="\033[0m"
 
+# Ask for hostname
+read -rp "Enter hostname: " HOSTNAME
+sudo hostnamectl set-hostname "$HOSTNAME"
+
 sudo dnf up -y
 sudo dnf install -y git gh stow cronie
 gh auth status &>/dev/null || gh auth login

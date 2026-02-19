@@ -1,9 +1,5 @@
 #!/usr/env/bin bash
 
-# Ask for hostname
-read -rp "Enter hostname: " HOSTNAME
-sudo hostnamectl set-hostname "$HOSTNAME"
-
 set_intel_video_drivers() {
   # Detect CPU vendor
   CPU_VENDOR=$(awk -F': ' '/vendor_id/ {print $2; exit}' /proc/cpuinfo)
