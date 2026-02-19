@@ -68,6 +68,9 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 sudo dnf copr -y enable alternateved/keyd \
   lizardbyte/beta
 
+# reload cache
+sudo dnf up -y
+
 sudo dnf install -y \
   fzf \
   fuse-libs \
