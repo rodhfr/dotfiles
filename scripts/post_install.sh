@@ -67,27 +67,31 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-sudo dnf install -y \
-  fzf \
-  fuse-libs \
-  pipx \
-  rclone \
-  alacritty \
-  neovim \
-  unzip \
-  p7zip \
-  p7zip-plugins \
-  keyd \
-  unrar \
-  mpv \
-  go \
-  fzf \
-  tldr \
-  zoxide \
-  nautilus-python \
-  git \
-  sunshine \
+packages=(
+  fzf
+  fuse-libs
+  pipx
+  rclone
+  alacritty
+  neovim
+  unzip
+  p7zip
+  p7zip-plugins
+  keyd
+  unrar
+  mpv
+  go
+  tldr
+  zoxide
+  nautilus-python
+  git
+  sunshine
   fish
+)
+
+for pkg in "${packages[@]}"; do
+  sudo dnf install -y "$pkg" || echo "WARNING: failed to install $pkg"
+done
 
 pipx install \
   flatgrep
