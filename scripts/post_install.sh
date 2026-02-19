@@ -52,6 +52,8 @@ setup_git_identity() {
 
 sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+sudo dnf copr -y enable alternateved/keyd \
+  lizardbyte/beta
 sudo dnf group upgrade core -y
 sudo dnf4 group install core -y
 sudo dnf -y update
@@ -64,12 +66,6 @@ sudo dnf group install -y sound-and-video                                       
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-sudo dnf copr -y enable alternateved/keyd \
-  lizardbyte/beta
-
-# reload cache
-sudo dnf up -y
 
 sudo dnf install -y \
   fzf \
