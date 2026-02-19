@@ -22,7 +22,10 @@ apply_stow() {
   local path=$1
   echo -e "🔗 Aplicando stow em $path..."
   cd "$path" || exit 1
-  stow --no-folding . || { echo -e "${RED}❌ Erro ao aplicar stow em $path${RESET}"; exit 1; }
+  stow --no-folding . || {
+    echo -e "${RED}❌ Erro ao aplicar stow em $path${RESET}"
+    exit 1
+  }
   echo -e "${GREEN}✅ Stow aplicado em $path${RESET}"
 }
 
