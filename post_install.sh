@@ -111,7 +111,7 @@ pipx install \
   flatgrep
 
 # Install flatpaks
-flatpak install -y \
+flatpak install -y --user \
   com.mattjakeman.ExtensionManager \
   it.mijorus.gearlever
 
