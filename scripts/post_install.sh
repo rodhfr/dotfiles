@@ -65,7 +65,10 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-sudo dnf in -y \
+sudo dnf copr -y enable alternateved/keyd \
+  lizardbyte/stable
+
+sudo dnf install -y \
   fzf \
   fuse-libs \
   pipx \
@@ -75,6 +78,7 @@ sudo dnf in -y \
   unzip \
   p7zip \
   p7zip-plugins \
+  keyd \
   unrar \
   mpv \
   go \
@@ -83,6 +87,7 @@ sudo dnf in -y \
   zoxide \
   nautilus-python \
   git \
+  sunshine \
   fish
 
 pipx install \
@@ -138,10 +143,6 @@ alias c="cd"
 alias p="pwd"
 alias l="ls"
 set -gx EDITOR nvim
-
-# Keyd install
-sudo dnf copr -y enable alternateved/keyd
-sudo dnf install keyd -y
 
 # Enable user systemd services (managed by dotfiles_secret, not stow)
 systemctl --user enable rclone-station.service
