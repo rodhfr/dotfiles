@@ -145,3 +145,7 @@ set -gx EDITOR nvim
 # Keyd install
 sudo dnf copr -y enable alternateved/keyd
 sudo dnf install keyd -y
+
+# Enable user systemd services (managed by dotfiles_secret, not stow)
+systemctl --user enable rclone-station.service
+systemctl --user enable sunshine.service

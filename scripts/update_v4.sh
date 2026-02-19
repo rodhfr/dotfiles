@@ -29,7 +29,7 @@ apply_stow() {
     exit 1
   }
 
-  stow --adopt .
+  stow --adopt --ignore='\.wants' .
   echo -e "${GREEN}${CHECK} Stow applied for $description${RESET}"
 }
 
