@@ -6,7 +6,7 @@ RESET="\033[0m"
 
 sudo dnf up -y
 sudo dnf install -y git gh stow cronie
-gh auth login
+gh auth status &>/dev/null || gh auth login
 
 clone_if_needed() {
   local repo=$1
