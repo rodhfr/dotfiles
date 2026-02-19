@@ -1,5 +1,5 @@
 # Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rodhfr/dotfiles/main/restore_repos.sh | sh
+curl -fsSL https://raw.githubusercontent.com/rodhfr/dotfiles/main/restore.sh | sh
 ```
