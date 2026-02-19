@@ -72,6 +72,7 @@ packages=(
   fuse-libs
   pipx
   rclone
+  sway
   alacritty
   neovim
   unzip
@@ -139,13 +140,6 @@ sudo rm -f /usr/lib64/firefox/browser/defaults/preferences/firefox-redhat-defaul
 # setup firewall
 sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
 sudo firewall-cmd --permanent --zone=public --add-service=ssh
-
-alias n="nvim"
-alias cls="clear"
-alias c="cd"
-alias p="pwd"
-alias l="ls"
-set -gx EDITOR nvim
 
 # Enable user systemd services (managed by dotfiles_secret, not stow)
 systemctl --user enable rclone-station.service
