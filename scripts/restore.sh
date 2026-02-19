@@ -39,7 +39,7 @@ echo -e "${GREEN}🎉 Dotfiles instalados com sucesso!${RESET}"
 
 (
   crontab -l 2>/dev/null
-  echo "0 2 * * * $HOME/dotfiles/scripts/update_v4.sh >> /tmp/update_v4.log 2>&1"
+  echo "0 2 * * * $HOME/dotfiles/scripts/restore.sh > /tmp/update_v4.log 2>&1"
 ) | crontab -
 
 # exec post install script
