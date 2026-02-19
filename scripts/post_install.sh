@@ -66,7 +66,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 sudo dnf copr -y enable alternateved/keyd \
-  lizardbyte/stable
+  lizardbyte/beta
 
 sudo dnf install -y \
   fzf \
