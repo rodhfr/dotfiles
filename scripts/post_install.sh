@@ -1,5 +1,9 @@
 #!/usr/env/bin bash
 
+# Ask for hostname
+read -rp "Enter hostname: " HOSTNAME
+sudo hostnamectl set-hostname "$HOSTNAME"
+
 set_intel_video_drivers() {
   # Detect CPU vendor
   CPU_VENDOR=$(awk -F': ' '/vendor_id/ {print $2; exit}' /proc/cpuinfo)
@@ -7,10 +11,6 @@ set_intel_video_drivers() {
     echo "Non-Intel CPU detected. Skipping configuration."
     return 0
   fi
-
-  # Ask for hostname
-  read -rp "Enter hostname: " HOSTNAME
-  sudo hostnamectl set-hostname "$HOSTNAME"
 
   # Detect Intel CPU model name
   CPU_MODEL=$(awk -F': ' '/model name/ {print $2; exit}' /proc/cpuinfo)
@@ -43,30 +43,11 @@ set_intel_video_drivers() {
 }
 
 setup_git_identity() {
-  # Check existing Git username and email
-  local current_username
-  local current_email
+  git config --global user.name "rodhfr"
+  echo "Git username set to: rodhfr"
 
-  current_username=$(git config --global user.name)
-  current_email=$(git config --global user.email)
-
-  # Set username if not already set
-  if [ -z "$current_username" ]; then
-    read -rp "Enter your Git username: " git_username
-    git config --global user.name "$git_username"
-    echo "Git username set to: $git_username"
-  else
-    echo "Git username already set to: $current_username"
-  fi
-
-  # Set email if not already set
-  if [ -z "$current_email" ]; then
-    read -rp "Enter your Git email: " git_email
-    git config --global user.email "$git_email"
-    echo "Git email set to: $git_email"
-  else
-    echo "Git email already set to: $current_email"
-  fi
+  git config --global user.email "souzafrodolfo@gmail.com"
+  echo "Git email set to: souzafrodolfo@gmail.com"
 
   echo "Setting default branch to main..."
   git config --global init.defaultBranch main
@@ -97,8 +78,8 @@ sudo dnf in -y \
   unzip \
   p7zip \
   p7zip-plugins \
-  unrar
-mpv \
+  unrar \
+  mpv \
   go \
   fzf \
   tldr \
@@ -110,10 +91,28 @@ mpv \
 pipx install \
   flatgrep
 
-# Install flatpaks
-flatpak install -y --user \
-  com.mattjakeman.ExtensionManager \
-  it.mijorus.gearlever
+flatpak install -y --user flathub \
+  com.discordapp.Discord \
+  com.github.huluti.Coulr \
+  com.moonlight_stream.Moonlight \
+  com.obsproject.Studio \
+  com.obsproject.Studio.Plugin.BackgroundRemoval \
+  com.obsproject.Studio.Plugin.DroidCam \
+  com.obsproject.Studio.Plugin.GStreamerVaapi \
+  com.obsproject.Studio.Plugin.Gstreamer \
+  com.obsproject.Studio.Plugin.InputOverlay \
+  com.obsproject.Studio.Plugin.OBSVkCapture \
+  com.obsproject.Studio.Plugin.WaylandHotkeys \
+  com.spotify.Client \
+  com.stremio.Stremio \
+  dev.diegovsky.Riff \
+  io.github.kolunmi.Bazaar \
+  org.audacityteam.Audacity \
+  org.audacityteam.Audacity.Codecs \
+  org.gnome.Boxes \
+  org.gnome.Boxes.Extension.OsinfoDb \
+  org.gnome.gitlab.somas.Apostrophe \
+  org.localsend.localsend_app
 
 # startship install
 curl -sS https://starship.rs/install.sh | sh
