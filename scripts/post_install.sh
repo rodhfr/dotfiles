@@ -109,6 +109,7 @@ packages=(
   zoxide
   axel
   nautilus-python
+  pv
   git
   sunshine
   kde-connect
