@@ -133,7 +133,13 @@ flatpak install -y --user flathub \
   com.obsproject.Studio \
   com.obsproject.Studio.Plugin.BackgroundRemoval \
   com.adamcake.Bolt \
+  com.github.neithern.g4music \
+  com.bitwarden.desktop \
+  com.heroicgameslauncher.hgl \
   com.obsproject.Studio.Plugin.DroidCam \
+  io.github.getnf.embellish \
+  io.github.herve4m.Length \
+  net.ankiweb.Anki \
   com.obsproject.Studio.Plugin.GStreamerVaapi \
   com.obsproject.Studio.Plugin.Gstreamer \
   com.obsproject.Studio.Plugin.InputOverlay \
