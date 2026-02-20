@@ -110,6 +110,7 @@ packages=(
   axel
   nautilus-python
   pv
+  nautilus
   git
   sunshine
   kde-connect
