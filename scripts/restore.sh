@@ -7,7 +7,11 @@ RESET="\033[0m"
 trap 'echo -e "\n${RED}❌ Cancelado pelo usuário.${RESET}"; exit 130' INT
 
 sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
 sudo dnf up -y
 sudo dnf install -y git gh stow cronie
@@ -64,11 +68,14 @@ MACHINE_ROLE=$(cat "$SETUP_FLAG")
 if [[ "$MACHINE_ROLE" =~ ^[Ee] ]]; then
   CRON_CMD="$HOME/dotfiles/scripts/update_v4.sh > /tmp/update_v4.log 2>&1"
 else
-  CRON_CMD="$HOME/dotfiles/scripts/restore.sh > /tmp/restore.log 2>&1"
+  CRON_CMD="git -C $HOME/dotfiles pull && git -C $HOME/dotfiles_secret pull > /tmp/dotfiles_pull.log 2>&1"
 fi
 
 CRON_LINE="0 2 * * * $CRON_CMD"
-(crontab -l 2>/dev/null | grep -vF "$HOME/dotfiles/scripts/"; echo "$CRON_LINE") | crontab -
+(
+  crontab -l 2>/dev/null | grep -vF "$HOME/dotfiles/scripts/"
+  echo "$CRON_LINE"
+) | crontab -
 
 # exec post install script
 bash "$HOME/dotfiles/scripts/post_install.sh"
