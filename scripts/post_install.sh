@@ -129,7 +129,7 @@ for pkg in "${packages[@]}"; do
 done
 
 for pypkg in "${pypackages[@]}"; do
-  pipx install -y "$pypkg" || echo "WARNING: failed to install $pypkg"
+  pipx install "$pypkg" || echo "WARNING: failed to install $pypkg"
 done
 
 flatpak install -y --user flathub \
