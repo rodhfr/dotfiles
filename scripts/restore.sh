@@ -7,11 +7,14 @@ RESET="\033[0m"
 trap 'echo -e "\n${RED}❌ Cancelado pelo usuário.${RESET}"; exit 130' INT
 
 sudo -v < /dev/tty
-while true; do
-  sudo -n true
-  sleep 60
-  kill -0 "$$" || exit
-done 2>/dev/null &
+(
+  trap - INT
+  while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+  done
+) 2>/dev/null &
 
 sudo dnf up -y
 sudo dnf install -y git gh stow cronie
