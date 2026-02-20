@@ -72,6 +72,6 @@ exec systemctl --user restart sunshine
 ############################### Wallpaper Config #######################################
 # Folder location
 # Randomly select a wallpaper from the folder ~/Pictures/Wallpapers
-exec_always pkill swaybg && sleep 0.1 && swaybg -i "$(find "$HOME/dotfiles/.config/wallpapers/" -type f | shuf -n 1)" -m fill
+exec_always pkill swaybg; sleep 0.1 && swaybg -i "$(find "$HOME/dotfiles/.config/wallpapers/" -type f | shuf -n 1)" -m fill
 ########################################################################################
 ########################################################################################
