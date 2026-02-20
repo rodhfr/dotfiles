@@ -88,6 +88,8 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 packages=(
   fzf
   fuse-libs
+  blueman
+  swaync
   waybar
   swaybg
   pipx
