@@ -70,7 +70,9 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 packages=(
   fzf
   fuse-libs
+  waybar
   pipx
+  steam
   rclone
   sway
   alacritty
