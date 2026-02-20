@@ -1,3 +1,4 @@
 function dotpull --description "pull dotfiles"
-    git pull "$HOME/dotfiles/"
+    git -C "$HOME/dotfiles" pull
+    and stow --dir="$HOME/dotfiles" --target="$HOME" .
 end
