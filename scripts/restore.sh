@@ -9,6 +9,7 @@ trap 'echo -e "\n${RED}❌ Cancelado pelo usuário.${RESET}"; exit 130' INT
 sudo dnf up -y
 sudo dnf install -y git gh stow cronie
 gh auth status &>/dev/null || gh auth login
+gh auth setup-git
 
 clone_if_needed() {
   local repo=$1
