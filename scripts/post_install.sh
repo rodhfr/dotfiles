@@ -141,6 +141,9 @@ curl -sSL https://astral.sh/uv/install.sh | sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | NONINTERACTIVE=1 bash
 
+# brew installs
+brew install gcc
+
 # setup shell
 sudo chsh -s /usr/bin/fish "$USER"
 set -U fish_user_paths ~/.local/bin/flatgrep
