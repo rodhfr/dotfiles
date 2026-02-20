@@ -4,8 +4,6 @@ GREEN="\033[1;32m"
 RED="\033[1;31m"
 RESET="\033[0m"
 
-trap 'echo -e "\n${RED}❌ Cancelado pelo usuário.${RESET}"; exit 130' INT
-
 sudo -v < /dev/tty
 (
   trap - INT
@@ -15,6 +13,9 @@ sudo -v < /dev/tty
     kill -0 "$$" || exit
   done
 ) 2>/dev/null &
+SUDO_PID=$!
+
+trap 'echo -e "\n${RED}❌ Cancelado pelo usuário.${RESET}"; kill "$SUDO_PID" 2>/dev/null; exit 130' INT
 
 sudo dnf up -y
 sudo dnf install -y git gh stow cronie
