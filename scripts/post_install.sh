@@ -113,12 +113,18 @@ packages=(
   fish
 )
 
+pypackages=(
+  flatgrep
+  autotiling
+)
+
 for pkg in "${packages[@]}"; do
   sudo dnf install -y "$pkg" || echo "WARNING: failed to install $pkg"
 done
 
-pipx install \
-  flatgrep
+for pypkg in "${pypackages[@]}"; do
+  pipx install -y "$pypkg" || echo "WARNING: failed to install $pypkg"
+done
 
 flatpak install -y --user flathub \
   com.discordapp.Discord \
