@@ -13,6 +13,8 @@ clone_if_needed() {
   local dest=$2
   if [ -d "$dest" ]; then
     echo -e "⚠️  $dest já existe, pulando clone..."
+    echo -e "⚠️  Fazendo pull from remote..."
+    gh repo pull "$repo" "$dest"
   else
     gh repo clone "$repo" "$dest"
   fi
