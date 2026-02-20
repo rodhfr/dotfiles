@@ -17,6 +17,20 @@ SUDO_PID=$!
 
 trap 'echo -e "\n${RED}❌ Cancelado pelo usuário.${RESET}"; kill "$SUDO_PID" 2>/dev/null; exit 130' INT
 
+SETUP_FLAG="$HOME/.config/dotfiles/setup_done"
+
+if [ ! -f "$SETUP_FLAG" ]; then
+  echo -e "Esta máquina é [r]eceptora (pull/restore) ou [e]nviadora (push/backup)? [r/e]: "
+  read -r MACHINE_ROLE </dev/tty
+
+  read -rp "Digite o hostname desta máquina: " NEW_HOSTNAME </dev/tty
+  sudo hostnamectl set-hostname "$NEW_HOSTNAME"
+
+  mkdir -p "$(dirname "$SETUP_FLAG")"
+  echo "$MACHINE_ROLE" >"$SETUP_FLAG"
+  echo -e "${GREEN}✅ Setup inicial concluído (hostname: $NEW_HOSTNAME)${RESET}"
+fi
+
 sudo dnf up -y
 sudo dnf install -y git gh stow cronie
 gh auth status &>/dev/null || gh auth login
@@ -52,20 +66,6 @@ apply_stow "$HOME/dotfiles"
 apply_stow "$HOME/dotfiles_secret"
 
 echo -e "${GREEN}🎉 Dotfiles instalados com sucesso!${RESET}"
-
-SETUP_FLAG="$HOME/.config/dotfiles/setup_done"
-
-if [ ! -f "$SETUP_FLAG" ]; then
-  echo -e "Esta máquina é [r]eceptora (pull/restore) ou [e]nviadora (push/backup)? [r/e]: "
-  read -r MACHINE_ROLE </dev/tty
-
-  read -rp "Digite o hostname desta máquina: " NEW_HOSTNAME </dev/tty
-  sudo hostnamectl set-hostname "$NEW_HOSTNAME"
-
-  mkdir -p "$(dirname "$SETUP_FLAG")"
-  echo "$MACHINE_ROLE" >"$SETUP_FLAG"
-  echo -e "${GREEN}✅ Setup inicial concluído (hostname: $NEW_HOSTNAME)${RESET}"
-fi
 
 MACHINE_ROLE=$(cat "$SETUP_FLAG")
 
