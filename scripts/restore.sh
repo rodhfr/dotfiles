@@ -4,7 +4,7 @@ GREEN="\033[1;32m"
 RED="\033[1;31m"
 RESET="\033[0m"
 
-sudo -v < /dev/tty
+sudo -v </dev/tty
 (
   trap - INT
   while true; do
@@ -72,7 +72,7 @@ MACHINE_ROLE=$(cat "$SETUP_FLAG")
 if [[ "$MACHINE_ROLE" =~ ^[Ee] ]]; then
   CRON_CMD="$HOME/dotfiles/scripts/update_v4.sh > /tmp/update_v4.log 2>&1"
 else
-  CRON_CMD="git -C $HOME/dotfiles pull && git -C $HOME/dotfiles_secret pull > /tmp/dotfiles_pull.log 2>&1"
+  CRON_CMD="$HOME/dotfiles/scripts/dotpull.sh"
 fi
 
 CRON_LINE="0 2 * * * $CRON_CMD"
