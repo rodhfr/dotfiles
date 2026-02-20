@@ -132,10 +132,12 @@ flatpak install -y --user flathub \
   com.moonlight_stream.Moonlight \
   com.obsproject.Studio \
   com.obsproject.Studio.Plugin.BackgroundRemoval \
+  com.adamcake.Bolt \
   com.obsproject.Studio.Plugin.DroidCam \
   com.obsproject.Studio.Plugin.GStreamerVaapi \
   com.obsproject.Studio.Plugin.Gstreamer \
   com.obsproject.Studio.Plugin.InputOverlay \
+  com.google.Chrome \
   com.obsproject.Studio.Plugin.OBSVkCapture \
   com.obsproject.Studio.Plugin.WaylandHotkeys \
   com.spotify.Client \
