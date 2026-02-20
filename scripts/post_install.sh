@@ -1,7 +1,11 @@
 #!/usr/env/bin bash
 
 sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
 set_intel_video_drivers() {
   # Detect CPU vendor
@@ -131,6 +135,7 @@ flatpak install -y --user flathub \
   com.spotify.Client \
   com.stremio.Stremio \
   dev.diegovsky.Riff \
+  net.retrodeck.retrodeck \
   io.github.kolunmi.Bazaar \
   org.audacityteam.Audacity \
   org.audacityteam.Audacity.Codecs \
