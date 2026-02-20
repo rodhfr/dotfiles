@@ -82,6 +82,7 @@ packages=(
   fzf
   fuse-libs
   waybar
+  swaybg
   pipx
   steam
   rclone
@@ -134,9 +135,11 @@ flatpak install -y --user flathub \
   org.gnome.gitlab.somas.Apostrophe \
   org.localsend.localsend_app
 
-# startship install
+# curl installs
 curl -sSL https://starship.rs/install.sh | sh -s -- -y
 curl -sSL https://astral.sh/uv/install.sh | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | NONINTERACTIVE=1 bash
 
 # setup shell
 sudo chsh -s /usr/bin/fish

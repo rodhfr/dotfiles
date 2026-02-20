@@ -30,7 +30,7 @@ exec /usr/bin/lxpolkit
 exec keyd-application-mapper -d
 
 ## Clipboard Manager
-exec_always sh -c 'pgrep -x wl-paste >/dev/null || /usr/bin/wl-paste --watch /home/rodhfr/go/bin/cliphist store'
+exec_always sh -c 'pgrep -x wl-paste >/dev/null || /usr/bin/wl-paste --watch $HOME/.config/sway/bin/cliphist store'
 
 ## Notification Daemon
 exec_always swaync
