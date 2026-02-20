@@ -69,3 +69,9 @@ CRON_LINE="0 2 * * * $CRON_CMD"
 
 # exec post install script
 bash "$HOME/dotfiles/scripts/post_install.sh"
+
+read -rp "Deseja reiniciar o computador agora? [s/N]: " REBOOT_ANSWER </dev/tty
+if [[ "$REBOOT_ANSWER" =~ ^[Ss]$ ]]; then
+  echo -e "${GREEN}🔄 Reiniciando...${RESET}"
+  sudo reboot
+fi
