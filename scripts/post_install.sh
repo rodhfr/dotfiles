@@ -162,4 +162,7 @@ sudo firewall-cmd --permanent --zone=public --add-service=ssh
 #systemctl --user enable rclone-station.service
 systemctl --user enable sunshine.service
 
+# keyd exec
+bash "$HOME/dotfiles/.config/keyd/update.sh"
+
 swaymsg reload
