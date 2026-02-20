@@ -1,5 +1,8 @@
 #!/usr/env/bin bash
 
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 set_intel_video_drivers() {
   # Detect CPU vendor
   CPU_VENDOR=$(awk -F': ' '/vendor_id/ {print $2; exit}' /proc/cpuinfo)
