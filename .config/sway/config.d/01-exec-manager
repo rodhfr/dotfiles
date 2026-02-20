@@ -37,6 +37,7 @@ exec_always swaync
 
 ## Start Tray Services
 exec_always python ~/.config/waybar/tray/audio_tray.py
+exec_always kdeconnect-indicator
 #exec_always python ~/.config/waybar/tray/select_scale.py # disabled due to no use anymore
 
 ## Wayvnc start

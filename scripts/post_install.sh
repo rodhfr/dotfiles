@@ -110,6 +110,7 @@ packages=(
   nautilus-python
   git
   sunshine
+  kde-connect
   fish
 )
 
