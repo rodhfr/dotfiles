@@ -142,7 +142,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | NONINTERACTIVE=1 bash
 
 # setup shell
-sudo chsh -s /usr/bin/fish
+sudo chsh -s /usr/bin/fish "$USER"
 set -U fish_user_paths ~/.local/bin/flatgrep
 
 # setup git
