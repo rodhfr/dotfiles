@@ -6,7 +6,7 @@ RESET="\033[0m"
 
 trap 'echo -e "\n${RED}❌ Cancelado pelo usuário.${RESET}"; exit 130' INT
 
-sudo -v
+sudo -v < /dev/tty
 while true; do
   sudo -n true
   sleep 60
