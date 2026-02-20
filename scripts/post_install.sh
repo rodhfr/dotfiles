@@ -50,10 +50,21 @@ setup_git_identity() {
   echo "Ok."
 }
 
-sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-sudo dnf copr -y enable alternateved/keyd \
+
+repos=(
+  alternateved/keyd
   lizardbyte/beta
+)
+
+for repo in "${repos[@]}"; do
+  sudo dnf copr -y enable "$repo" || echo "WARNING: failed to install repository $repo"
+done
+
 sudo dnf group upgrade core -y
 sudo dnf4 group install core -y
 sudo dnf -y update
@@ -74,6 +85,7 @@ packages=(
   pipx
   steam
   rclone
+  fuzzel
   sway
   alacritty
   neovim
@@ -123,8 +135,8 @@ flatpak install -y --user flathub \
   org.localsend.localsend_app
 
 # startship install
-curl -sS https://starship.rs/install.sh | sh -s -- -y
-curl -LsSf https://astral.sh/uv/install.sh | sh
+curl -sSL https://starship.rs/install.sh | sh
+curl -sSL https://astral.sh/uv/install.sh | sh
 
 # setup shell
 sudo chsh -s /usr/bin/fish
