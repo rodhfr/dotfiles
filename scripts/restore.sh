@@ -16,7 +16,7 @@ clone_if_needed() {
   if [ -d "$dest" ]; then
     echo -e "⚠️  $dest já existe, pulando clone..."
     echo -e "⚠️  Fazendo pull from remote..."
-    gh repo pull "$repo" "$dest"
+    git -C "$dest" pull
   else
     gh repo clone "$repo" "$dest"
   fi
@@ -63,9 +63,10 @@ else
   CRON_CMD="$HOME/dotfiles/scripts/restore.sh > /tmp/restore.log 2>&1"
 fi
 
-(
+CRON_LINE="0 2 * * * $CRON_CMD"
+crontab -l 2>/dev/null | grep -qF "$CRON_LINE" || (
   crontab -l 2>/dev/null
-  echo "0 2 * * * $CRON_CMD"
+  echo "$CRON_LINE"
 ) | crontab -
 
 # exec post install script
