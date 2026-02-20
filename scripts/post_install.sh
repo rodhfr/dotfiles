@@ -141,6 +141,8 @@ curl -sSL https://starship.rs/install.sh | sh -s -- -y
 curl -sSL https://astral.sh/uv/install.sh | sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | NONINTERACTIVE=1 bash
+# this is a nvm replacement fmn
+curl -fsSL https://fnm.vercel.app/install | bash
 
 # brew installs
 brew install gcc
