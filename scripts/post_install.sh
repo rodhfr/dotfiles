@@ -94,6 +94,7 @@ packages=(
   p7zip
   p7zip-plugins
   keyd
+  sed
   unrar
   mpv
   go

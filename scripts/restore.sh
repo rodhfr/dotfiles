@@ -65,10 +65,7 @@ else
 fi
 
 CRON_LINE="0 2 * * * $CRON_CMD"
-crontab -l 2>/dev/null | grep -qF "$CRON_LINE" || (
-  crontab -l 2>/dev/null
-  echo "$CRON_LINE"
-) | crontab -
+(crontab -l 2>/dev/null | grep -vF "$HOME/dotfiles/scripts/"; echo "$CRON_LINE") | crontab -
 
 # exec post install script
 bash "$HOME/dotfiles/scripts/post_install.sh"
