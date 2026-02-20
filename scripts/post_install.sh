@@ -158,3 +158,5 @@ sudo firewall-cmd --permanent --zone=public --add-service=ssh
 # Enable user systemd services (managed by dotfiles_secret, not stow)
 #systemctl --user enable rclone-station.service
 systemctl --user enable sunshine.service
+
+swaymsg reload
