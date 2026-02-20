@@ -161,6 +161,9 @@ curl -fsSL https://fnm.vercel.app/install | bash
 # brew installs
 brew install gcc
 
+# cargo install
+cargo install eza
+
 # setup shell
 sudo chsh -s /usr/bin/fish "$USER"
 set -U fish_user_paths ~/.local/bin/flatgrep
