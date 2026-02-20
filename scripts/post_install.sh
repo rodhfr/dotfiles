@@ -107,6 +107,7 @@ packages=(
   go
   tldr
   zoxide
+  axel
   nautilus-python
   git
   sunshine
