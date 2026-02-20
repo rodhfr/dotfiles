@@ -135,7 +135,7 @@ flatpak install -y --user flathub \
   org.localsend.localsend_app
 
 # startship install
-curl -sSL https://starship.rs/install.sh | sh
+curl -sSL https://starship.rs/install.sh | sh -s -- -y
 curl -sSL https://astral.sh/uv/install.sh | sh
 
 # setup shell
