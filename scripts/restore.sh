@@ -39,13 +39,32 @@ apply_stow "$HOME/dotfiles_secret"
 
 echo -e "${GREEN}🎉 Dotfiles instalados com sucesso!${RESET}"
 
+SETUP_FLAG="$HOME/.config/dotfiles/setup_done"
+
+if [ ! -f "$SETUP_FLAG" ]; then
+  echo -e "Esta máquina é [r]eceptora (pull/restore) ou [e]nviadora (push/backup)? [r/e]: "
+  read -r MACHINE_ROLE </dev/tty
+
+  read -rp "Digite o hostname desta máquina: " NEW_HOSTNAME </dev/tty
+  sudo hostnamectl set-hostname "$NEW_HOSTNAME"
+
+  mkdir -p "$(dirname "$SETUP_FLAG")"
+  echo "$MACHINE_ROLE" >"$SETUP_FLAG"
+  echo -e "${GREEN}✅ Setup inicial concluído (hostname: $NEW_HOSTNAME)${RESET}"
+fi
+
+MACHINE_ROLE=$(cat "$SETUP_FLAG")
+
+if [[ "$MACHINE_ROLE" =~ ^[Ee] ]]; then
+  CRON_CMD="$HOME/dotfiles/scripts/update_v4.sh > /tmp/update_v4.log 2>&1"
+else
+  CRON_CMD="$HOME/dotfiles/scripts/restore.sh > /tmp/restore.log 2>&1"
+fi
+
 (
   crontab -l 2>/dev/null
-  echo "0 2 * * * $HOME/dotfiles/scripts/restore.sh > /tmp/update_v4.log 2>&1"
+  echo "0 2 * * * $CRON_CMD"
 ) | crontab -
 
 # exec post install script
 bash "$HOME/dotfiles/scripts/post_install.sh"
-
-# exec setup hostname
-bash "$HOME/dotfiles/scripts/hostname.sh"
