@@ -29,6 +29,9 @@ exec /usr/bin/lxpolkit
 ## Start app remapping keyd
 exec keyd-application-mapper -d
 
+## Start syncthing
+exec syncthing
+
 ## Clipboard Manager
 exec_always sh -c 'pgrep -x wl-paste >/dev/null || /usr/bin/wl-paste --watch $HOME/.config/sway/bin/cliphist store'
 

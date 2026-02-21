@@ -113,6 +113,7 @@ packages=(
   nautilus-python
   pv
   nautilus
+  syncthing
   git
   sunshine
   kde-connect
