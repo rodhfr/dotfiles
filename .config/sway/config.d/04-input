@@ -7,6 +7,8 @@ input * xkb_options "compose:menu"
 
 ## Settings for all inputs
 input "*" {
+    xkb_layout "us,br"
+    xkb_options "grp:win_space_toggle,compose:menu"
     accel_profile "flat"
     pointer_accel 0
     tap enabled 

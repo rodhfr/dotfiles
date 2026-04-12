@@ -247,7 +247,7 @@ bindsym $mod+Shift+Return exec $alttty
 bindsym $mod+Ctrl+Return exec $alttty2
 
 ## Browser
-bindsym $mod+f exec $browser 
+bindsym $mod+f exec flatpak run org.mozilla.firefox
 
 ## Audio Management
 bindsym $mod+v exec $audiogui 

@@ -1,5 +1,82 @@
+[general]
+import = [
+  "~/.config/alacritty/dank-theme.toml"
+]
+
+[window]
+decorations = "None"
+padding = { x = 12, y = 12 }
+opacity = 0.95
+blur = true
+title = "Terminal"
+
+[terminal]
+osc52 = "CopyPaste"
+
+[scrolling]
+history = 3023
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 500
+unfocused_hollow = true
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "ComicShannsMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "ComicShannsMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "ComicShannsMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold_italic]
+family = "ComicShannsMono Nerd Font Mono"
+style = "Bold"
+
+# [font.normal]
+# family = "CaskaydiaCove Nerd Font Mono"
+# style = "Regular"
+#
+# [font.bold]
+# family = "CaskaydiaCove Nerd Font Mono"
+# style = "Bold"
+#
+# [font.italic]
+# family = "CaskaydiaCove Nerd Font Mono"
+# style = "Italic"
+#
+# [font.bold_italic]
+# family = "CaskaydiaCove Nerd Font Mono"
+# style = "Bold Italic"
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = false
+
+[bell]
+duration = 0
+
+[terminal.shell]
+program = "/usr/bin/fish"
+
 [keyboard]
 bindings = [
+  { key = "C",       mods = "Control|Shift", action = "Copy"  },
+  { key = "V",       mods = "Control|Shift", action = "Paste" },
+  { key = "N",       mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "Equals",  mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "Minus",   mods = "Control",       action = "DecreaseFontSize" },
+  { key = "Key0",    mods = "Control",       action = "ResetFontSize"    },
+  { key = "Enter",   mods = "Shift",         chars = "\n" },
   { key = 'PageUp',  action = 'ScrollLineUp' },
   { key = 'PageDown', action = 'ScrollLineDown' },
   { key = 'PageUp', mods = "Shift", action = 'ScrollHalfPageUp' },
@@ -7,15 +84,6 @@ bindings = [
   { key = 'PageUp', mods = "Control", action = 'ScrollToTop' },
   { key = 'PageDown', mods = "Control", action = 'ScrollToBottom' },
 ]
-
-[window]
-opacity = 0.95
-blur = true
-dynamic_padding = true
-title = "Terminal"
-
-[terminal]
-osc52 = "CopyPaste"
 
 [[hints.enabled]]
 command = "xdg-open" # On Linux/BSD
@@ -27,4 +95,3 @@ persist = false
 mouse.enabled = true
 binding = { key = "O", mods = "Control|Shift" }
 regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
-

@@ -34,7 +34,7 @@ k = A-k
 l = A-l
 up = f9
 down = f8
-
+esc = macro(~)
 i = leftmouse
 o = rightmouse
 rightbrace = macro2(150, 10, scrollup)
